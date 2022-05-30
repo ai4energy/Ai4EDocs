@@ -1,13 +1,13 @@
-# LearnDocs
+# MTKDocs
 
 ![julia图片](assets/julia.png)
 
 !!! tip
     [点击此处到智慧能源系统导论](https://ai4energy.github.io/enpo811203/)
 
-## LearnDocs简介
+## MTKDocs简介
 
-LearnDocs是Ai4小组在学习中整理的一些可操作案例。案例的核心主要与建模仿真优化控制相关。文档主要特点为：
+MTKDocs是Ai4小组在学习中整理的一些可操作案例。案例的核心主要与建模仿真优化控制相关。文档主要特点为：
 
 * 既有数学层面的探究，也包含了应用层面的案例。
 * 包含大量Julia生态中软件包的使用
