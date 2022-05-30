@@ -1,4 +1,4 @@
-# LearnDocs
+# MTKDocs
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://ai4energy.github.io/MTKDocs/)
 
