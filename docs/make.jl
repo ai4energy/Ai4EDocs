@@ -1,7 +1,7 @@
 using Documenter
 
 makedocs(
-    sitename="LearnDocs",
+    sitename="MTKDocs",
     pages=[
         "Home" => "index.md",
         "Modeling" => Any[
@@ -45,7 +45,7 @@ makedocs(
 
 
 deploydocs(
-   repo="github.com/jake484/LearnDocs.git";
+   repo="https://github.com/ai4energy/MTKDocs.git";
    push_preview=true
 #    target = "../build",
 )
