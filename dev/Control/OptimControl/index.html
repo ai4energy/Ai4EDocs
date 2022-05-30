@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>最优控制理论与应用 · MTKDocs</title><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.044/juliamono.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../../"><img src="../../assets/logo.jpg" alt="MTKDocs logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href="../../">MTKDocs</a></span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><span class="tocitem">Modeling</span><ul><li><a class="tocitem" href="../../Modeling/DE_intro/">DifferentialEquations建模方法</a></li><li><a class="tocitem" href="../../Modeling/MTK_intro/">ModelingToolkit建模方法</a></li><li><a class="tocitem" href="../../Modeling/MTK_register/">ModelingToolkit调用外部函数</a></li><li><a class="tocitem" href="../../Modeling/WathMTKdo/">MTK的&quot;前世今生&quot;</a></li><li><a class="tocitem" href="../../Modeling/ProcesSys/">浅谈流程建模</a></li><li><a class="tocitem" href="../../Modeling/neural_network/">数学视角下的神经网络</a></li></ul></li><li><span class="tocitem">Simulation</span><ul><li><a class="tocitem" href="../../Simulation/componementModel/">组件化建模实例</a></li><li><a class="tocitem" href="../../Simulation/steadyRC/">MTK稳态系统仿真实例</a></li><li><a class="tocitem" href="../../Simulation/MTK_heattran/">MTK手动空间离散求解PDE</a></li><li><a class="tocitem" href="../../Simulation/DE_heattran/">DE求解PDE（对比MTK）</a></li></ul></li><li><span class="tocitem">Optimization</span><ul><li><a class="tocitem" href="../../Optimization/参数辨识实例_MTK/">MTK非线性参数辨识实例</a></li><li><a class="tocitem" href="../../Optimization/JuMP参数辨识/">JuMP非线性参数辨识实例</a></li><li><a class="tocitem" href="../../Optimization/DE_Estim/">微分方程参数辨识实例</a></li><li><a class="tocitem" href="../../Optimization/systemParaEste/">MTK符号系统参数辨识</a></li></ul></li><li><span class="tocitem">Control</span><ul><li><a class="tocitem" href="../MTKMPC/">MTK求解MPC问题</a></li><li><a class="tocitem" href="../JuMPMPC/">JuMP求解MPC问题</a></li><li class="is-active"><a class="tocitem" href>最优控制理论与应用</a><ul class="internal"><li><a class="tocitem" href="#问题描述"><span>1 问题描述</span></a></li><li><a class="tocitem" href="#状态方程"><span>2 状态方程</span></a></li><li><a class="tocitem" href="#最优控制问题解析解"><span>3 最优控制问题解析解</span></a></li><li><a class="tocitem" href="#机器人控制问题求解实例"><span>4 机器人控制问题求解实例</span></a></li><li><a class="tocitem" href="#数值解"><span>5 数值解</span></a></li><li><a class="tocitem" href="#总结"><span>总结</span></a></li></ul></li></ul></li><li><span class="tocitem">CS Base</span><ul><li><a class="tocitem" href="../../CS Base/env_variable/">环境（变量）的本质</a></li><li><a class="tocitem" href="../../CS Base/julia的安装/">Julia安装</a></li><li><a class="tocitem" href="../../CS Base/julia_change_pkgserve/">Julia换源(更换国内镜像站)</a></li><li><a class="tocitem" href="../../CS Base/Creat and Call dll/">动态链接库(DLL)的生成与调用</a></li><li><a class="tocitem" href="../../CS Base/SSH_Git/">SSH、Git与Git图形化软件</a></li></ul></li><li><span class="tocitem">Tools</span><ul><li><a class="tocitem" href="../../Tools/CoolProp/">CoolProp使用介绍</a></li><li><a class="tocitem" href="../../Tools/CSV_jl_use/">CVS.jl使用简介</a></li><li><a class="tocitem" href="../../Tools/vscode_git/">VScode中使用Git</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Control</a></li><li class="is-active"><a href>最优控制理论与应用</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>最优控制理论与应用</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/ai4energy/MTKDocs/blob/master/docs/src/Control/OptimControl.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="最优控制理论与应用"><a class="docs-heading-anchor" href="#最优控制理论与应用">最优控制理论与应用</a><a id="最优控制理论与应用-1"></a><a class="docs-heading-anchor-permalink" href="#最优控制理论与应用" title="Permalink"></a></h1><div class="admonition is-success"><header class="admonition-header">Tip</header><div class="admonition-body"><p>Contents：JuMP、Control、EquationsSolver</p><p>Contributor: YJY</p><p>Email:522432938@qq.com</p><p>如有错误，请批评指正。</p></div></div><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p><a href="https://jump.dev/JuMP.jl/stable/">JuMP</a>是计算优化问题的Julia软件包。</p><p><a href="https://symbolics.juliasymbolics.org/dev/">Symbolics.jl</a>为符号计算包</p><p><a href="https://jake484.github.io/EquationsSolver.jl/">EquationsSolver</a>自制的小型方程（组）求解器。</p></div></div><h2 id="问题描述"><a class="docs-heading-anchor" href="#问题描述">1 问题描述</a><a id="问题描述-1"></a><a class="docs-heading-anchor-permalink" href="#问题描述" title="Permalink"></a></h2><p>本篇通过一个机器人的控制问题，介绍最优控制的相关理论与求解方式。问题如下：</p><p><img src="../../assets/OptimControl-11_00_33.png" alt="图 1"/>  </p><p>题目信息总结如下：</p><ul><li>这是一个含有三个关节的机器人。</li><li>机器人身体的三部分与垂直方向的夹角分别为<span>$\theta=[\theta_1,\theta_2,\theta_3]$</span>。</li><li>机器人的三个关节能够提供使机器人运动的扭矩：<span>$Q=[Q_1,Q_2,Q_3]$</span>。</li><li>机器人关节的扭矩与夹角之间的关系（控制方程）为：<span>$J\mathbf{\ddot{\theta}}=K\theta+BQ$</span>。</li></ul><p>扭矩对夹角的控制方程的推导方法，我们并不关心。<strong>知晓它是通过动力学学分析得出即可。</strong></p><p>它最重要的信息是揭示了<span>$Q$</span>与<span>$\theta$</span>之间的控制关系。通过该方程，我们可以知道，如果控制量<span>$Q$</span>发生了改变，被控量<span>$\theta$</span>会发生何种变化。控制方程的物理含义是，夹角变化的角加速度与夹角的位置以及关节扭矩相关。具体的系数值见上图所示。</p><h3 id=".1-（最优）控制内涵"><a class="docs-heading-anchor" href="#.1-（最优）控制内涵">1.1 （最优）控制内涵</a><a id=".1-（最优）控制内涵-1"></a><a class="docs-heading-anchor-permalink" href="#.1-（最优）控制内涵" title="Permalink"></a></h3><p>从这个问题中，我们可以抽象出“控制”一般性内涵：<strong>通过改变控制量来操作被控量。</strong></p><p>那么什么是最优控制的内涵呢？</p><p>假如，机器人初始状态是斜站着（<span>$\theta=[\frac{\pi}{4},\frac{\pi}{4},\frac{\pi}{4}]$</span>，弧度制单位），现在要让机器人站直（<span>$\theta=[0,0,0]$</span>）。我们可以改变关节扭矩<span>$Q$</span>。那么问题来了，<span>$Q$</span>应该：</p><ul><li>是否是一个随时间不变的常数？</li><li>如果是常数，取何值？</li><li>是否是一个随时间变化的函数？</li><li>如果是函数，怎样变化？</li></ul><p>我们从方程中可以发现，假若对<span>$Q$</span>不加限制。只是要机器人站直，那么我可以通过改变<span>$Q$</span>，让机器人可以慢慢的站、快快的站、先蹲后站，先躺后站，先俯卧撑再站，先整几个深蹲再站 :)。</p><p>最优的含义则体现在这些“限制”里。一般而言，若对控制的效果加以限制，使控制的某种指标最大（最小），则是最优控制。例如，让机器人最快的站直，最省力的站直。在这些“最”的限制下，<span>$Q$</span>就不是任意的了（要最快的站直就不能先做个俯卧撑再站，那样就慢了 :) ），而是仅有一组最符合要求的。在数学上，最符合要求的<span>$Q$</span>则是这个最优化问题的解。这就是最优化控制的内涵。</p><p>综上，其关键的要素有两点：</p><ol><li>控制方程</li><li>控制过程中的最优化目标</li></ol><p>在以上2点关键要素之下，最优控制问题的本质是优化问题：</p><ul><li>优化目标：控制最优化</li><li>优化约束：控制方程代表的变量约束以及起点终点约束等。</li></ul><h2 id="状态方程"><a class="docs-heading-anchor" href="#状态方程">2 状态方程</a><a id="状态方程-1"></a><a class="docs-heading-anchor-permalink" href="#状态方程" title="Permalink"></a></h2><p>状态空间方程是控制学中非常重要的一个概念。控制学中，把变量视为状态。其本质还是将数学上的变量赋予了物理含义。状态方程的矩阵形式为：</p><p class="math-container">\[\dot{\mathbf{x}}=\mathbf{A}(t)\mathbf{x}+\mathbf{B}(t)\mathbf{u}\]</p><p>其特征如下：</p><ul><li>上述<span>$\mathbf{x}$</span>为状态向量</li><li>上述<span>$\mathbf{u}$</span>为系统的输入向量（控制量向量）</li><li>上述<span>$\mathbf{A,B}$</span>为系统系数矩阵，描述内部量之间的联系。</li><li>统一以一阶导数的形式描述。</li></ul><p>若把机器人的控制方程写成状态方程，则有：</p><p class="math-container">\[\left\{\begin{matrix}\dot{\mathbf{x_1}}=\mathbf{x_2}\\\dot{\mathbf{x_2}}=\mathbf{J^{-1}K}\mathbf{x_1}+\mathbf{J^{-1}B}\mathbf{u}\end{matrix}\right.\Rightarrow \dot{\mathbf{x}}=\begin{bmatrix}0&amp;1\\\mathbf{J^{-1}K}&amp;0\end{bmatrix}\mathbf{x}+\begin{bmatrix}0\\\mathbf{J^{-1}B}\end{bmatrix}\mathbf{u}\]</p><p>其中，</p><p class="math-container">\[\mathbf{A}=\begin{bmatrix}0&amp;1\\\mathbf{J^{-1}K}&amp;0\end{bmatrix},\mathbf{B}=\begin{bmatrix}0\\\mathbf{J^{-1}B}\end{bmatrix}\]</p><ul><li>上述<span>$\mathbf{x_1}$</span>代表角速度向量，有三个角速度分量。</li><li>上述<span>$\mathbf{x_2}$</span>代表角加速度向量，有三个角加速度分量。</li><li>上述<span>$\mathbf{u}$</span>代表扭矩向量，有三个扭矩分量。</li></ul><p>如此则统一了控制问题的方程描述。状态方程也好，控制方程也好，其本质是描述系统的方程。<strong>它们只是形式上的区别，在数学本质上是一致的</strong>。统一为状态方程的好处是，能够对控制问题进行普适性的推导与计算，使得状态方程下的数学推论具有普遍意义。</p><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>状态方程的定义为:描述系统状态变量与输入变量之间关系的一阶微分方程组，称为系统的状态方程。状态方程表征了系统由输入量引起的内部状态变量的变化情况。</p></div></div><h2 id="最优控制问题解析解"><a class="docs-heading-anchor" href="#最优控制问题解析解">3 最优控制问题解析解</a><a id="最优控制问题解析解-1"></a><a class="docs-heading-anchor-permalink" href="#最优控制问题解析解" title="Permalink"></a></h2><p><strong>首先，介绍系统一般性数学描述：</strong></p><p><code>系统状态方程</code></p><p class="math-container">\[\dot{x}(t)=Ax(t)+Bu(t)=f[x(t),u(t),t]\]</p><p>由于状态量都是关于时间的因变量，所以都写成关于时间的函数。</p><p><code>系统始端与终端</code></p><p class="math-container">\[x(t_0)=x_0,x(t_f)=x_f \]</p><p><code>系统性能指标</code></p><p class="math-container">\[J=\int_{t_o}^{t_f}L[x(t),u(t),t]dt\]</p><hr/><p><strong>其次，把它写优化问题的数学形式则为：</strong></p><p class="math-container">\[\begin{matrix}
+ \min \int_{t_o}^{t_f}L[x(t),u(t),t]dt\\s.t.\hspace{6cm}\\\dot{x}(t)=f[x(t),u(t),t]\\x(t_0)=x_0\\x(t_f)=x_f 
+\end{matrix}\]</p><p>一般的优化问题的解是数。不同于一般的优化问题，该优化的问题的解是函数。这就涉及到数学中的变分概念。这里不过多介绍，只给结论。</p><div class="admonition is-success"><header class="admonition-header">Tip</header><div class="admonition-body"><p>一般最优化问题中，是找到相应的数值使得优化目标最小。最优化控制问题中，是找到相应的控制函数，使得优化目标最小。一个是找数值，一个是找函数。相当于自变量变为了函数。这是泛函分析解决的问题。</p></div></div><h3 id=".1-端点固定问题的解法"><a class="docs-heading-anchor" href="#.1-端点固定问题的解法">3.1 端点固定问题的解法</a><a id=".1-端点固定问题的解法-1"></a><a class="docs-heading-anchor-permalink" href="#.1-端点固定问题的解法" title="Permalink"></a></h3><p><strong>端点固定问题即<span>$t_f$</span>的数值确定</strong>。</p><p>求解析解的方法是拉格朗日乘子法在泛函分析中的体现。首先令，</p><p class="math-container">\[H = L[x(t),u(t),t] + \lambda(t)^Tf[x(t),u(t),t]\]</p><p>上式中，<span>$H$</span>称为<strong>哈密尔顿函数</strong>，<span>$\lambda(t)$</span>为<strong>伴随方程</strong>。最优控制函数存在的必要条件为：</p><p class="math-container">\[\begin{matrix}
+ \dot{\lambda} = -\frac{\partial H}{\partial x}\\
+\frac{\partial H}{\partial u}=0\\
+\end{matrix}\]</p><p>再结合控制方程与边界方程，则可以解得分析解。</p><div class="admonition is-success"><header class="admonition-header">Tip</header><div class="admonition-body"><p>最优控制问题中有多种边界条件。端点固定问题只是其中一种。它们分别为：</p><ol><li>终端时刻<span>$t_f$</span>固定，终端向量<span>$x(t_f)$</span>自由</li><li>终端时刻<span>$t_f$</span>固定，终端向量<span>$x(t_f)$</span>约束</li><li>终端时刻<span>$t_f$</span>自由，终端向量<span>$x(t_f)$</span>约束</li></ol><p>在约束中，数值确定是也是约束的一种。不同的边界条件，添加不同的边界方程，在此不过多介绍，有兴趣可以翻看《最优控制理论》。</p></div></div><h2 id="机器人控制问题求解实例"><a class="docs-heading-anchor" href="#机器人控制问题求解实例">4 机器人控制问题求解实例</a><a id="机器人控制问题求解实例-1"></a><a class="docs-heading-anchor-permalink" href="#机器人控制问题求解实例" title="Permalink"></a></h2><p>机器人问题的状态方程为：</p><p class="math-container">\[\begin{matrix}
+ \dot{\mathbf{x}}=\mathbf{A}\mathbf{x}+\mathbf{B}\mathbf{u}\\  \\
+\mathbf{A}=\begin{bmatrix}0&amp;1\\\mathbf{J^{-1}K}&amp;0\end{bmatrix},\mathbf{B}=\begin{bmatrix}0\\\mathbf{J^{-1}B}\end{bmatrix}
+\end{matrix}\]</p><p>设优化目标如下，可以理解为最省力的站直方式。因为其物理含义是时间域上的扭矩平方和最小。</p><p class="math-container">\[J=\int_{t_o}^{t_f}u^2dt\]</p><p>可以得到哈密尔顿方程为：</p><p class="math-container">\[H=u^2+A\lambda_2x_1+\lambda_1x_2+\lambda_2Bu\]</p><p>代入解析解存在的必要条件：</p><p class="math-container">\[\begin{matrix}
+ \dot{\lambda_1} = -\frac{\partial H}{\partial x_1}=-\lambda_2x_2\\ \dot{\lambda_2} = -\frac{\partial H}{\partial x_2}=-\lambda_1\\\frac{\partial H}{\partial u}=2u+\lambda_2B=0\\
+\end{matrix}\]</p><h3 id=".1-SymPy求状态方程解析解"><a class="docs-heading-anchor" href="#.1-SymPy求状态方程解析解">4.1 SymPy求状态方程解析解</a><a id=".1-SymPy求状态方程解析解-1"></a><a class="docs-heading-anchor-permalink" href="#.1-SymPy求状态方程解析解" title="Permalink"></a></h3><p>化简伴随方程，结合控制方程，可以得到：</p><p class="math-container">\[\begin{matrix}
+ \ddot{\lambda_2} - A\lambda_2= 0\\ u=-0.5*\lambda_2B\\\ddot{x_1}=Ax_1+Bu
+\end{matrix}\]</p><p>为了求得上述问题的解析解，采用SymPy。SymPy是基于python的符号计算包，其开发了julia的调用接口。</p><pre><code class="language-julia hljs">using SymPy
+@syms t A B λ() x() #定义函数及符号变量
+diffeq = Eq(λ(t).diff(t, 2), A * λ(t)) # 定义需要求解的方程
+λt = dsolve(diffeq, λ(t)).__pyobject__.rhs # 求解得到λ
+ut = -1//2 * B * λt # 计算得到u
+diffeq2 = Eq(x(t).diff(t, t), A * x(t) + B * ut)# 定义关于x(t)的微分方程
+dsolve(diffeq2, x(t))  # 求解</code></pre><div class="admonition is-warning"><header class="admonition-header">Warning</header><div class="admonition-body"><p>在上述代码中，0.5需要用1//2，这样<span>$x(t)$</span>才能求得解析解，否则会报错。因为0.5是浮点数。</p></div></div><p>得到结果如下：</p><p><img src="../../assets/OptimControl-16_06_49.png" alt="图 2"/>  </p><p>即：</p><p class="math-container">\[x_1(t)=(C_3+C_1\frac{B^2t}{4\sqrt{A}})exp^{-\sqrt{A}t}+(C_4-C_2\frac{B^2t}{4\sqrt{A}})exp^{\sqrt{A}t}\]</p><p>同时，对<span>$x_1(t)$</span>进行求导，得到<span>$x_2(t)$</span>。</p><pre><code class="language-julia hljs">dsolve(diffeq2, x(t)).__pyobject__.rhs.diff(t)</code></pre><p><img src="../../assets/OptimControl-10_56_14.png" alt="图 1"/>  </p><p>即：</p><p class="math-container">\[x_2(t)=-(\sqrt{A}C_3+C_1\frac{B^2t}{4})exp^{-\sqrt{A}t}+(\sqrt{A}C_4-C_2\frac{B^2t}{4})exp^{\sqrt{A}t}+C_1\frac{B^2t}{4\sqrt{A}}exp^{-\sqrt{A}t}-C_2\frac{B^2t}{4\sqrt{A}}exp^{\sqrt{A}t}\]</p><p>这里一共有4个未知数:<span>$C_1,C_2,C_3,C_4$</span>，通过4个边界调节确定：</p><p class="math-container">\[\begin{matrix}
+x_1(0)=[\frac{\pi}{4},\frac{\pi}{4},\frac{\pi}{4}]\\x_1(1)=[0,0,0]\\x_2(0)=[0,0,0]\\x_2(1)=[0,0,0]\\
+\end{matrix}\]</p><p>4个边界方程则可解出4个未知数<span>$C_1,C_2,C_3,C_4$</span>。实际上<span>$C_1,C_2,C_3,C_4$</span>是4个向量，每个向量分别对应机器人三部分的参数。在求解时，实际上是12个变量。</p><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>也可以通过SymPy直接求解微分方程组。能获得同样的结果。</p><pre><code class="language-julia hljs">using SymPy  
+@syms t A B λ1() x1() λ2() x2()
+eqs = [
+Eq(λ1(t).diff(t), -A * λ2(t)),
+Eq(λ2(t).diff(t), -λ1(t)),
+Eq(x1(t).diff(t), x2(t)),
+Eq(x2(t).diff(t), A * x1(t) - B^2 / 2 * λ2(t))
+]
+dsolve(eqs)</code></pre></div></div><h3 id=".2-参数矩阵求解"><a class="docs-heading-anchor" href="#.2-参数矩阵求解">4.2 参数矩阵求解</a><a id=".2-参数矩阵求解-1"></a><a class="docs-heading-anchor-permalink" href="#.2-参数矩阵求解" title="Permalink"></a></h3><p>下面介绍如何在Julia生态高效计算4个未知数。</p><p>需要运用符号处理包——Symbolics.jl。该包在<a href="../../Modeling/WathMTKdo/">MTK的&quot;前世今生&quot;</a>已经介绍过。本篇中也会用到。</p><pre><code class="language-julia hljs">using Symbolics, EquationsSolver, LinearAlgebra
+# ==========================functions==================== #
+function initPara()
+    J1 = 1.0 / 12 * collect(I(3))
+    C1 = 0.5 * [1 2 2; 0 1 2; 0 0 2]
+    D1 = 0.5 * [1 0 0; 2 1 0; 4 2 1]
+    J = J1 + C1 * D1
+    K = 0.5 * [5 0 0; 0 3 0; 0 0 1]
+    B = [1 -1 0; 0 1 -1; 0 0 1]
+    A = inv(J) * K
+    B = inv(J) * B
+    return A, B
+end
+
+function x1(A, B, t, C1, C2, M1, M2)
+    A = sqrt(A)
+    B = inv(A) * B * B / 4
+    s = -(B * t) .* exp.(A * t) .* C1
+    s = s .+ exp.(A * t) .* M1
+    s = s .+ (B * t) .* exp.(-A * t) .* C2
+    s = s .+ exp.(-A * t) .* M2
+    return s
+end
+
+function x2(A, B, t, C1, C2, M1, M2)
+    A = sqrt(A)
+    B = B * B / 4
+    s = (-B * t .* C1 .+ A * M1 .- inv(A) * B * C1) .* exp.(A * t)
+    s = s .+ (-B * t .* C2 .- A * M2 .+ inv(A) * B * C2) .* exp.(-A * t)
+    return s
+end
+
+function SolvePro(eqs, init, vars)
+    pro = NLProblem(eqs, init)
+    res = solve(pro)
+    return [reshape([res[var[i]] for i in 1:3], (3, 1)) for var in vars]
+end
+
+function condition(θfields, A, B, tfields, C1, C2, M1, M2)
+    res = x1(A, B, tfields[1], C1, C2, M1, M2)
+    eqs = [res[i] ~ θfields[1][i] for i in 1:3]
+    res = x1(A, B, tfields[2], C1, C2, M1, M2)
+    append!(eqs, [res[i] ~ θfields[2][i] for i in 1:3])
+    res = x2(A, B, tfields[1], C1, C2, M1, M2)
+    append!(eqs, [res[i] ~ θfields[3][i] for i in 1:3])
+    res = x2(A, B, tfields[2], C1, C2, M1, M2)
+    append!(eqs, [res[i] ~ θfields[4][i] for i in 1:3])
+    return eqs
+end
+
+function Problem(A, B, θfields, tfields)
+    vars = @variables C1[1:3] C2[1:3] M1[1:3] M2[1:3]
+    C1, C2, M1, M2 = [reshape(collect(var), 3, 1) for var in vars]
+    eqs = condition(θfields, A, B, tfields, C1, C2, M1, M2)
+    init = Dict(var[i] =&gt; 0.0 for var in vars for i in 1:3)
+    return SolvePro(eqs, init, vars)
+end
+
+
+# ==========================main==================== #
+A, B = initPara()
+# 分别为x1(0) x1(t) x2(0) x2(t)的边界值
+θfields = [[π / 3, -π / 4, π / 2], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+tfields = (fill(0.0, 3, 1), fill(1.0, 3, 1))
+N = 100
+C1, C2, M1, M2 = Problem(A, B, θfields, tfields)
+t = (0, 1)
+
+degrees = [x1(A, B, fill(i, 3, 1), C1, C2, M1, M2) for i in range(t[1], t[2], length=N)]
+velocity = [x2(A, B, fill(i, 3, 1), C1, C2, M1, M2) for i in range(t[1], t[2], length=N)]</code></pre><div class="admonition is-warning"><header class="admonition-header">Warning</header><div class="admonition-body"><p>SolvePro()中，<span>$\frac{B^2t}{4\sqrt{A}}$</span>等含有除以矩阵<span>$A$</span>的式子，在编写时都要写为左乘<span>$A$</span>的逆矩阵。这是由数学含义决定的，否则结果错误。</p></div></div><p>上述代码的核心思想为：<strong>将符号计算与数字计算在形式上统一</strong>。核心为函数<code>x1()</code>与<code>x2()</code>。其便捷性在于，若把符号矩阵作为传递给<code>x1()</code>，则<code>x1()</code>计算结果为符号矩阵，若传递数值，则计算结果为数值解。</p><hr/><p><strong>符号计算解参数：</strong></p><pre><code class="language-julia hljs">function SolvePro(eqs, init, vars)
+    pro = NLProblem(eqs, init)
+    res = solve(pro)
+    return [reshape([res[var[i]] for i in 1:3], (3, 1)) for var in vars]
+end
+function condition(θfields, A, B, tfields, C1, C2, M1, M2)
+    res = x1(A, B, tfields[1], C1, C2, M1, M2)
+    eqs = [res[i] ~ θfields[1][i] for i in 1:3]
+    res = x1(A, B, tfields[2], C1, C2, M1, M2)
+    append!(eqs, [res[i] ~ θfields[2][i] for i in 1:3])
+    res = x2(A, B, tfields[1], C1, C2, M1, M2)
+    append!(eqs, [res[i] ~ θfields[3][i] for i in 1:3])
+    res = x2(A, B, tfields[2], C1, C2, M1, M2)
+    append!(eqs, [res[i] ~ θfields[4][i] for i in 1:3])
+    return eqs
+end
+function Problem(A, B, θfields, tfields)
+    vars = @variables C1[1:3] C2[1:3] M1[1:3] M2[1:3]
+    C1, C2, M1, M2 = [reshape(collect(var), 3, 1) for var in vars]
+    eqs = condition(θfields, A, B, tfields, C1, C2, M1, M2)
+    init = Dict(var[i] =&gt; 0.0 for var in vars for i in 1:3)
+    return SolvePro(eqs, init, vars)
+end</code></pre><ul><li>在<code>Problem()</code>函数中，定义了12个未知数。</li><li>将符号作为参数传递给<code>condition()</code>并通过其构建待求解方程。如果兴趣可以在函数中Print待求解方程结果。</li><li>通过<code>SolvePro()</code>调用<a href="https://jake484.github.io/EquationsSolver.jl/">EquationsSolver</a>方程求解器求解。</li></ul><p>最终可得到12个参数的结果</p><p><strong>数字计算算结果：</strong></p><p>在计算出4个参数向量后，<code>SolvePro()</code>经过结果处理返回参数向量值，再调用<code>x1()</code>与<code>x2()</code>时，则能够得到各时间点的数值。具体的操作方式如下：</p><pre><code class="language-julia hljs">t = (0, 1)
+degrees = [x1(A, B, fill(i, 3, 1), C1, C2, M1, M2) for i in range(t[1], t[2], length=N)]
+velocity = [x2(A, B, fill(i, 3, 1), C1, C2, M1, M2) for i in range(t[1], t[2], length=N)]</code></pre><p>在调用<code>x1()</code>与<code>x2()</code>时，不过是传递了不同的参数，就能得到不同结果的类型。<strong>传递符号就计算符号，传递数值就计算数值</strong>。符号与数值本在数学形式上是一致的，在Julia中则完美地实现了这一点！</p><h3 id=".3-解析解可视化"><a class="docs-heading-anchor" href="#.3-解析解可视化">4.3 解析解可视化</a><a id=".3-解析解可视化-1"></a><a class="docs-heading-anchor-permalink" href="#.3-解析解可视化" title="Permalink"></a></h3><pre><code class="language-julia hljs">degrees = real.(degrees)
+velocity = real.(velocity)
+using Plots
+filename = &quot;./a.gif&quot;
+len = 1
+anim = @animate for i in 1:N
+    strings = &quot;t=$(i/N*(t[2]-t[1])+t[1])  &quot;
+    strings *= &quot;v₁=&quot; * string(round.(velocity[i][1], digits=2))
+    strings *= &quot; v₂=&quot; * string(round.(velocity[i][2], digits=2))
+    strings *= &quot; v₃=&quot; * string(round.(velocity[i][3], digits=2))
+    l = collect(0:0.01:len)
+    xs1 = l .* sin(degrees[i][1])
+    ys1 = l .* cos(degrees[i][1])
+    xs2 = l .* sin(degrees[i][2]) .+ xs1[end]
+    ys2 = l .* cos(degrees[i][2]) .+ ys1[end]
+    xs3 = l .* sin(degrees[i][3]) .+ xs2[end]
+    ys3 = l .* cos(degrees[i][3]) .+ ys2[end]
+    plot([xs1, xs2, xs3], [ys1, ys2, ys3],
+        ylims=(0, 4), xlims=(-3, 3), w=3,
+        grid=false, showaxis=false, legend=false,
+        title=strings)
+end
+gif(anim, filename, fps=24)</code></pre><p>上面的实例计算的是机器人初态为<span>$\theta=[\frac{\pi}{3},-\frac{\pi}{4},\frac{\pi}{2}]$</span>的情况。动图如下：</p><p><img src="../../assets/OptimControl-16_41_51.gif" alt="图 2"/>  </p><p>机器人初态为<span>$\theta=[\frac{\pi}{3},\frac{\pi}{4},\frac{\pi}{5}]$</span>的情况：</p><p><img src="../../assets/OptimControl-16_42_51.gif" alt="图 3"/>  </p><p>机器人初态为<span>$\theta=[\frac{\pi}{18},\frac{\pi}{6},\frac{\pi}{4}]$</span>的情况：</p><p><img src="../../assets/OptimControl-16_43_29.gif" alt="图 4"/>  </p><h2 id="数值解"><a class="docs-heading-anchor" href="#数值解">5 数值解</a><a id="数值解-1"></a><a class="docs-heading-anchor-permalink" href="#数值解" title="Permalink"></a></h2><p>该问题使用数值解则很好解决，优化问题使用JuMP则迎刃而解。</p><h3 id=".1-求解方法"><a class="docs-heading-anchor" href="#.1-求解方法">5.1 求解方法</a><a id=".1-求解方法-1"></a><a class="docs-heading-anchor-permalink" href="#.1-求解方法" title="Permalink"></a></h3><p>首先看一个示例：</p><pre><code class="language-julia hljs">using JuMP, LinearAlgebra, Ipopt, Statistics
+
+θ = [π / 3, -π / 4, π / 2]
+θ = [π / 18, π / 6, π / 4]
+θ = [π / 3, π / 4, π / 5]
+N = 100
+tf = 4.0
+
+#---------------------------------------------#
+function initPara()
+    J1 = 1.0 / 12 * collect(I(3))
+    C1 = 0.5 * [1 2 2; 0 1 2; 0 0 2]
+    D1 = 0.5 * [1 0 0; 2 1 0; 4 2 1]
+    J = J1 + C1 * D1
+    K = 0.5 * [5 0 0; 0 3 0; 0 0 1]
+    B = [1 -1 0; 0 1 -1; 0 0 1]
+    A = inv(J) * K
+    B = inv(J) * B
+    return A, B
+end
+A, B = initPara()
+model = Model(Ipopt.Optimizer)
+@variables(model, begin
+    -π / 2 &lt;= x1[1:N, 1:3] &lt;= π / 2
+    x2[1:N, 1:3]
+    -10 &lt;= u[1:N, 1:3] &lt;= 10
+end)
+initzeros = zeros(3)
+for j in 1:3
+    @NLconstraint(model, x1[1, j] == θ[j])
+    @NLconstraint(model, x2[1, j] == initzeros[j])
+    @NLconstraint(model, x1[N, j] == initzeros[j])
+    @NLconstraint(model, x2[N, j] == initzeros[j])
+end
+for i in 1:N-1
+    a1 = x1[i, :] + (x2[i+1, :] + x2[i, :]) * 0.5 * tf / N
+    a2 = x2[i, :] + (A * (x1[i+1, :] + x1[i, :]) + B * (u[i+1, :] + u[i, :])) * 0.5tf / N
+    for j in 1:3
+        @NLconstraint(model, x1[i+1, j] == a1[j])
+        @NLconstraint(model, x2[i+1, j] == a2[j])
+    end
+end
+@NLobjective(model, Min, sum(20 / π * x1[i, j]^2 + u[i, j]^2 for i in 1:N-1 for j in 1:3))
+JuMP.optimize!(model)
+degrees = JuMP.value.(x1)
+velocity = JuMP.value.(x2)
+
+
+using Plots
+filename = &quot;./u_x_a4.gif&quot;
+len = 1
+anim = @animate for i in 1:N
+    strings = &quot;Numerical t=$(i/N*tf)  &quot;
+    strings *= &quot;v₁=&quot; * string(round(velocity[i, 1], digits=2))
+    strings *= &quot; v₂=&quot; * string(round(velocity[i, 2], digits=2))
+    strings *= &quot; v₃=&quot; * string(round(velocity[i, 3], digits=2))
+    l = collect(0:0.01:len)
+    xs1 = l .* sin(degrees[i, 1])
+    ys1 = l .* cos(degrees[i, 1])
+    xs2 = l .* sin(degrees[i, 2]) .+ xs1[end]
+    ys2 = l .* cos(degrees[i, 2]) .+ ys1[end]
+    xs3 = l .* sin(degrees[i, 3]) .+ xs2[end]
+    ys3 = l .* cos(degrees[i, 3]) .+ ys2[end]
+    plot([xs1, xs2, xs3], [ys1, ys2, ys3],
+        ylims=(0, 4), xlims=(-3, 3), w=3,
+        grid=false, showaxis=false, legend=false,
+        title=strings)
+end
+gif(anim, filename, fps=24)</code></pre><p>该示例包含了求解与可视化，有如下特征:</p><ol><li>时间采样数（离散数）为：<code>N = 100</code>；</li><li>调节时间为：<code>tf = 4</code>；</li><li>优化变量（扭矩、角度）有范围限制；</li><li>终端对速度也有约束；</li><li>状态方程作为优化问题的约束，约束不同时刻的状态量之间的关联（不同时间的角度值为不同优化变量。角度状态，角速度状态，扭矩状态各有3N个）。状态方程变为离散结构，因为一旦涉及到数值解，必定是离散化的。离散的方式是<a href="../../Simulation/DE_heattran/">二阶的梯形法</a>；</li><li>优化目标为<span>$\sum_{j=1}^{3}\sum_{i=1}^{N}\frac{20}{\pi}x_{1(i,j)}^2+u_{(i,j)}^2$</span></li></ol><div class="admonition is-success"><header class="admonition-header">Tip</header><div class="admonition-body"><p>离散的概念有两种理解，一种为问题性质上的理解，即问题本身具有离散性质。另外一种是方法上的理解，即求解问题的过程中对于连续问题采用了离散化的方式。</p><p>问题性质的离散，是变量本身的一种状态或特性，如开关状态的0与1是独立的状态，本身具有不连续的特性。</p><p>而离散化是对于连续问题的求解方式。问题本身是连续的，但是为了使用数值计算方法求得数值解，需要取“连续”中的一些相互间隔的“离散”点来代表“连续”。例如，微分方程的数值解法欧拉法的步长则是具有“连续”性质的离散。微分方程的数值解法，一定是离散化的方法——在时间域上选取一定步长间隔的点求解。</p><p>这两者都可以认为是离散问题，而离散化的方法决定了数值计算的精度以及求解的计算量。从方法的层面说，数值计算本身就是离散问题，对于使用计算机进行数值求解来说，不存在连续求解方法。</p></div></div><p>对于以上6点，先不做说明，可以先看一些结果。</p><p><strong>情况一</strong></p><ul><li>优化目标：<span>$\sum_{j=1}^{3}\sum_{i=1}^{N}u_{(i,j)}^2$</span>；</li><li>参数：<code>N = 100</code>，<code>tf = 1</code>；</li><li>末速度限制为0；变量无约束。</li><li>初态为<span>$\theta=[\frac{\pi}{3},-\frac{\pi}{4},\frac{\pi}{2}]$</span></li></ul><p><img src="../../assets/OptimControl-17_37_21.gif" alt="图 5"/>  </p><p><strong>情况二</strong> </p><ul><li>优化目标：<span>$\sum_{j=1}^{3}\sum_{i=1}^{N}u_{(i,j)}^2$</span>；</li><li>参数：<code>N = 100</code>，<code>tf = 1</code>；</li><li><strong>末速度无限制</strong>；变量无约束。</li><li>初态为<span>$\theta=[\frac{\pi}{3},-\frac{\pi}{4},\frac{\pi}{2}]$</span></li></ul><p><img src="../../assets/OptimControl-17_38_48.gif" alt="图 6"/>  </p><p><strong>情况三</strong> </p><ul><li>优化目标：<span>$\sum_{j=1}^{3}\sum_{i=1}^{N}x_{1(i,j)}^2$</span>；</li><li>参数：<code>N = 100</code>，<code>tf = 1</code>；</li><li>末速度限制为0；变量无约束。</li><li>初态为<span>$\theta=[\frac{\pi}{3},-\frac{\pi}{4},\frac{\pi}{2}]$</span></li></ul><p><img src="../../assets/OptimControl-17_43_11.gif" alt="图 8"/>  </p><p><strong>情况四</strong></p><ul><li>优化目标：<span>$\sum_{j=1}^{3}\sum_{i=1}^{N}x_{1(i,j)}^2$</span>；</li><li>参数：<code>N = 100</code>，<code>tf = 2</code>；</li><li>末速度限制为0；变量范围限制：<span>$-10&lt;=u&lt;=10$</span>。</li><li>初态为<span>$\theta=[\frac{\pi}{3},-\frac{\pi}{4},\frac{\pi}{2}]$</span></li></ul><p><img src="../../assets/OptimControl-17_46_55.gif" alt="图 9"/>  </p><p><strong>情况五</strong></p><ul><li>优化目标：<span>$\sum_{j=1}^{3}\sum_{i=1}^{N}x_{1(i,j)}^2+u_{(i,j)}^2$</span>；</li><li>参数：<code>N = 100</code>，<code>tf = 4</code>；</li><li>末速度限制为0；变量范围限制：<span>$-10&lt;=u&lt;=10$</span>。</li><li>初态为<span>$\theta=[\frac{\pi}{3},-\frac{\pi}{4},\frac{\pi}{2}]$</span></li></ul><p><img src="../../assets/OptimControl-17_52_31.gif" alt="图 10"/>  </p><h3 id=".2-对比分析"><a class="docs-heading-anchor" href="#.2-对比分析">5.2 对比分析</a><a id=".2-对比分析-1"></a><a class="docs-heading-anchor-permalink" href="#.2-对比分析" title="Permalink"></a></h3><p>情况一（站直且速度为零）与情况二（站直速度任意）为不同边界约束的结果。情况一确实不如情况二“迅猛”，情况一的机器人有些拘束，情况二的动作则一气呵成，因为约束少了。同时，情况一的解析解与数值解结果，机器人动作非常神似。</p><p>情况一（最省力）、情况三（距离最短）与情况五（省力也要距离短）为不同优化条件的结果。可以看出来情况五综合了情况一个和情况二的优点。同时，情况五<span>$x_1$</span>前面的系数目的是为了平衡优化的效果——将角度值与速度值置于同一量级，即加大省距离的权重。这类似于机器学习的正则化。其实他们在内涵上有相通之处，通过权重规定了对不同优化目标的“重视程度”！</p><p>情况三与情况四的不同之处在于控制量的范围约束与调节时间限制。在数学上来说，不管给定何种始终条件，若控制量u不限制，则一定能完成控制任务（优化问题有解）。所以在条件4的控制量约束下，若是设<code>tf=1</code>，则在求解时找不到最优解，唯有把时间放款才能在控制量约束下找到解。这非常符合实际，控制量不能无限大，控制过程也需要时间。</p><p>事实上，也可以通过解析解来验证这些结论，但解析解的代码量太大，不如数值解来得方便 :) 。例如，同时考虑<span>$x$</span>与<span>$u$</span>的解析解结果为 :)：</p><p><img src="../../assets/OptimControl-18_29_57.png" alt="图 11"/>  </p><h2 id="总结"><a class="docs-heading-anchor" href="#总结">总结</a><a id="总结-1"></a><a class="docs-heading-anchor-permalink" href="#总结" title="Permalink"></a></h2><p>由机器人的最优控制问题，介绍最优问题的解析解与数值解。从两方面基本上已经诠释了最优控制的内涵。即，为了某种目标去找到一组最合适的控制量。事实上，这只是控制的第一步，计算结果都是静态的。接下来还需要根据实际的系统反馈进行时间域上的滚动优化，滚动起来后，就能够利用系统的反馈，<strong>实现了真正意义上的控制——对反馈的处理与计算</strong>。</p><p>另外，从整个机器人问题求解的过程也可以看出Julia生态的强大之处。当问题清楚之后，灵活使用Julia生态的各种软件包，能方便快捷地计算出结果。事实上，最优控制问题的底层数学形式为两种——求解类问题（解析解）与优化类问题（数值解）。同时，符号计算使得编写代码方便快捷。这三者恰恰是Julia计算的长处。所以Julia处理最优控制问题，可以用两个词来形容——丝滑、顺畅。</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../JuMPMPC/">« JuMP求解MPC问题</a><a class="docs-footer-nextpage" href="../../CS Base/env_variable/">环境（变量）的本质 »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.18 on <span class="colophon-date" title="Monday 30 May 2022 06:08">Monday 30 May 2022</span>. Using Julia version 1.7.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
