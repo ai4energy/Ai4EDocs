@@ -37,5 +37,19 @@ Ai4Energy组织可以视为一个大的代码仓库，每个人都可以向组�
 
 ![图 2](../assets/gitworkflow-17-53.png)  
 
+* Step1: Fork，Fork的意思是在自己的个人仓库建立一个一样的
 
+![图 4](../assets/gitworkflow-18-22.png)  
+
+
+
+![图 2](../assets/gitWorkFlow_1.gif)
+
+拉取之后点击`Open Now`，我们就能看到操作页面。同时在左侧需要点击`Add`。GitKraken自动检测到我们Fork了一个包，它会认为你可能需要通过修改别人的代码然后上传到你自己的库里，所以它给了一个添加自己Fork的库的一个远程仓库。
+
+中间的蓝色绿色圈是啥呢？是文件修改的记录。
+
+![图 5](../assets/gitWorkFlow_2.gif)
+
+* Step3: 本地对库进行内容编辑。
 
