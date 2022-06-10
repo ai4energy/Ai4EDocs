@@ -40,7 +40,11 @@ makedocs(
             "Tools/CoolProp.md",
             "Tools/CSV_jl_use.md",
             "Tools/vscode_git.md"
-        ],],
+        ],
+        "Workflow" => Any[
+            "Workflow/gitworkflow.md",
+        ],
+        ],
 )
 
 
