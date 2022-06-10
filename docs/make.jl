@@ -42,7 +42,7 @@ makedocs(
             "Tools/vscode_git.md"
         ],
         "Workflow" => Any[
-            "workflow/gitworkflow.md",
+            "WorkFlow/gitworkflow.md",
         ],
         ],
 )
