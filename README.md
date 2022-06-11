@@ -1,6 +1,6 @@
-# Ai4Docs
+# Ai4EDocs
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://ai4energy.github.io/Ai4Docs/)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://ai4energy.github.io/Ai4EDocs/)
 
 这是一个关于建模仿真优化控制的文档集合，收集整理相关实例。
 
@@ -8,6 +8,6 @@
 
 欢迎大家投稿，成为贡献者。
 
-[文档链接，供学习参考](https://ai4energy.github.io/Ai4Docs/)
+[文档链接，供学习参考](https://ai4energy.github.io/Ai4EDocs/)
 
 PS:`./src`中包含了文档中的一些代码与相关资源
