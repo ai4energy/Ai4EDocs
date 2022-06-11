@@ -1,7 +1,9 @@
 using Documenter
 
+format = Documenter.HTML(assets = ["assets/css/ai4e.css"])
+
 makedocs(
-    sitename="Ai4Docs",
+    sitename="Ai4EDocs",
     pages=[
         "Home" => "index.md",
         "Modeling" => Any[
@@ -45,11 +47,12 @@ makedocs(
             "WorkFlow/gitworkflow.md",
         ],
         ],
+    format=format,
 )
 
 
 deploydocs(
-   repo="https://github.com/ai4energy/Ai4Docs.git";
+   repo="https://github.com/ai4energy/Ai4EDocs.git";
    push_preview=true
 #    target = "../build",
 )
