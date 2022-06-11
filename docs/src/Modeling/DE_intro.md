@@ -37,7 +37,7 @@
 现有洛伦兹方程为例：
 
 ```math
-\frac{dx}{dt}  = \sigma(x+y) \\ \frac{dy}{dt}  = x(\rho-z)-y \\ \frac{dz}{dt} = xy - \beta z
+\frac{dx}{dt}  = \sigma(y-x) \\ \frac{dy}{dt}  = x(\rho-z)-y \\ \frac{dz}{dt} = xy - \beta z
 ```
 
 微分方程在DifferentialEquations.jl中含有5个要素：

@@ -34,7 +34,7 @@ MTK，就是这样一种符号计算包。在DE中，我们构建的是方程（
 考虑洛伦兹方程：
 
 ```math
-\frac{dx}{dt}  = \sigma(x+y) \\ \frac{dy}{dt}  = x(\rho-z)-y \\ \frac{dz}{dt} = xy - \beta z
+\frac{dx}{dt}  = \sigma(y-x) \\ \frac{dy}{dt}  = x(\rho-z)-y \\ \frac{dz}{dt} = xy - \beta z
 ```
 
 ---
