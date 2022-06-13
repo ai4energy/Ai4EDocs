@@ -65,7 +65,7 @@ Ai4Energy组织可以视为一个大的代码仓库，每个人都可以向组�
 
 整体的逻辑图如下：
 
-![图 2](../assets/gitworkflow-17-53.png)  
+![图 2](../assets/gitworkflow-11-58.png)  
 
 ## 合作开发的方法
 

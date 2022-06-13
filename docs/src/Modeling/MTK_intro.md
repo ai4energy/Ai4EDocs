@@ -15,6 +15,8 @@
 
     [ModelingToolkit.jl](https://mtk.sciml.ai/stable/)为基于符号系统的建模工具包。
 
+    MTK-Version:8.5 及以上
+
 ## 符号计算内涵
 
 符号计算的内涵很简单，其本质就是处理、简化方程的未知数。例如:
@@ -34,7 +36,7 @@ MTK，就是这样一种符号计算包。在DE中，我们构建的是方程（
 考虑洛伦兹方程：
 
 ```math
-\frac{dx}{dt}  = \sigma(x+y) \\ \frac{dy}{dt}  = x(\rho-z)-y \\ \frac{dz}{dt} = xy - \beta z
+\frac{dx}{dt}  = \sigma(y-x) \\ \frac{dy}{dt}  = x(\rho-z)-y \\ \frac{dz}{dt} = xy - \beta z
 ```
 
 ---
@@ -50,7 +52,7 @@ eqs =[
     D(u[2]) ~ u[1]*(p[2]-u[3]) - u[2]
     D(u[3]) ~ u[1]*u[2] - p[3]*u[3]
 ]
-Sys = ODESystem(eqs)
+@named Sys = ODESystem(eqs)
 ```
 
 其中：
@@ -78,7 +80,7 @@ eqs =[
     D(y) ~ x*(ρ-z) - y
     D(z) ~ x*y - β*z
 ]
-sys = ODESystem(eqs)
+@named sys = ODESystem(eqs)
 ```
 
 ![图 2](../assets/MTK_intro-09_58_45.png)  
