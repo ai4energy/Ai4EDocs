@@ -1,6 +1,6 @@
 # Ai4EDocs
 
-![图 4](assets/index-11-04.png)  
+![图 4](assets/index_picture.png)  
 
 !!! tip
     [点击此处到智慧能源系统导论](https://ai4energy.github.io/enpo811203/)

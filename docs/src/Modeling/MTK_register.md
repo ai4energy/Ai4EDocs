@@ -15,6 +15,8 @@
 
     [ModelingToolkit.jl](https://mtk.sciml.ai/stable/)为基于符号系统的建模工具包。
 
+    MTK-Version:8.5 及以上
+
 ## 提出问题
 
 在前面的[ModelingToolkit建模方法](./MTK_intro.md)中提到，符号系统是MTK的基石。那么，如果想加入一个外部函数，应该怎么解决？例如方程：
