@@ -54,3 +54,5 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 4. [Greet](https://greet.es.anl.gov/)
 5. [Mqtt系列教程](https://www.hangge.com/blog/cache/detail_2347.html)
 6. [Mixed Integer Distributed Ant Colony Optimization(midaco-solver)](http://www.midaco-solver.com/)
+7. [python的GUI开发工具PYQT](https://github.com/PyQt5/PyQt/)
+8. [Mathematica](https://tiebamma.github.io/InstallTutorial/#mathematica-1301/)
