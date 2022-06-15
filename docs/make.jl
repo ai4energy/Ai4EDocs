@@ -44,6 +44,7 @@ makedocs(
         "Workflow" => Any[
             "WorkFlow/julia的安装.md",
             "WorkFlow/julia_change_pkgserve.md",
+            "WorkFlow/vscodePlugin.md",
             "WorkFlow/gitworkflow.md",
         ],
         ],
