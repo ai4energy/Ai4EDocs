@@ -33,8 +33,6 @@ makedocs(
         ],
         "CS Base" => Any[
             "CS Base/env_variable.md",
-            "CS Base/julia的安装.md",
-            "CS Base/julia_change_pkgserve.md",
             "CS Base/Creat and Call dll.md",
             "CS Base/SSH_Git.md",
         ],
@@ -44,6 +42,8 @@ makedocs(
             "Tools/vscode_git.md"
         ],
         "Workflow" => Any[
+            "WorkFlow/julia的安装.md",
+            "WorkFlow/julia_change_pkgserve.md",
             "WorkFlow/gitworkflow.md",
         ],
         ],
