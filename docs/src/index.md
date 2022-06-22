@@ -3,7 +3,11 @@
 ![图 4](assets/index_picture.png)  
 
 !!! tip
-    [点击此处到智慧能源系统导论](https://ai4energy.github.io/enpo811203/)
+
+    * [智慧能源系统导论](https://ai4energy.github.io/enpo811203/)
+    * [OptControl.jl](https://ai4energy.github.io/OptControl.jl/dev/)
+    * [Ai4ELab](https://ai4energy.github.io/Ai4ELab/dev/)
+    * [Ai4EComponentLib.jl](https://ai4energy.github.io/Ai4EComponentLib.jl/dev/)
 
 ## Ai4EDocs简介
 
@@ -23,7 +27,7 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 
 欢迎各位贡献文档！
 
-![Stable](https://img.shields.io/badge/Articles-Total_26-green.svg?style=flat-square)
+![Stable](https://img.shields.io/badge/Articles-Total_27-green.svg?style=flat-square)
 
 ## Julia资源传送门
 
