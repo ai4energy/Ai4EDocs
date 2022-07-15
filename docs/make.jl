@@ -29,7 +29,8 @@ makedocs(
         "Control" => Any[
             "Control/MTKMPC.md",
             "Control/JuMPMPC.md",
-            "Control/OptimControl.md"
+            "Control/OptimControl.md",
+            "Control/KalmanFiltering.md"
         ],
         "CS Base" => Any[
             "CS Base/env_variable.md",
