@@ -47,6 +47,7 @@ makedocs(
             "WorkFlow/julia_change_pkgserve.md",
             "WorkFlow/vscodePlugin.md",
             "WorkFlow/gitworkflow.md",
+            "WorkFlow/DocStructure.md"
         ],
         ],
     format=format,
