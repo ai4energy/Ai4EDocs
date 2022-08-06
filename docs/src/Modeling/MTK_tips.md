@@ -1,5 +1,14 @@
 
-# MTK踩坑合集
+# MTK常见问题
+
+!!! tip
+    Contents：建模、MTK、外部函数
+
+    Contributor: YYB
+
+    Email: 812987139@qq.com
+
+    如有错误，请批评指正。
 
 ## UndefVarError
 

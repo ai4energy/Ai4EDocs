@@ -21,13 +21,13 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 * 分享学习的心路历程与对库使用的理解
 * Ai4Energy组的合作开发流程
 
-供大家学习参考。
+供学习参考。
 
 ![Stable](https://img.shields.io/badge/Docs-Updating...-blue.svg?style=flat-square)
 
-欢迎各位贡献文档！
+欢迎贡献文档！
 
-![Stable](https://img.shields.io/badge/Articles-Total_30-green.svg?style=flat-square)
+![Stable](https://img.shields.io/badge/Articles-Total_31-green.svg?style=flat-square)
 
 ## Julia资源传送门
 
@@ -62,3 +62,53 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 6. [Mixed Integer Distributed Ant Colony Optimization(midaco-solver)](http://www.midaco-solver.com/)
 7. [Python的GUI开发工具PYQT](https://github.com/PyQt5/PyQt/)
 8. [Mathematica](https://tiebamma.github.io/InstallTutorial/#mathematica-1301/)
+
+## 文档内容
+
+```@eval
+dirs = ["Modeling","Simulation","Optimization","Control","CS Base","Tools","WorkFlow"]
+
+"总篇数：$(sum(map(file -> length(readdir(joinpath(@__DIR__,"..","src",file))), dirs)))"
+```
+
+### 建模
+
+```@contents
+Pages = map(file -> joinpath("Modeling", file), readdir("Modeling"))
+```
+
+### 仿真
+
+```@contents
+Pages = map(file -> joinpath("Simulation", file), readdir("Simulation"))
+```
+
+### 优化
+
+```@contents
+Pages = map(file -> joinpath("Optimization", file), readdir("Optimization"))
+```
+
+### 控制
+
+```@contents
+Pages = map(file -> joinpath("Control", file), readdir("Control"))
+```
+
+### 基础知识
+
+```@contents
+Pages = map(file -> joinpath("CS Base", file), readdir("CS Base"))
+```
+
+### 工具集
+
+```@contents
+Pages = map(file -> joinpath("Tools", file), readdir("Tools"))
+```
+
+### 工作流程
+
+```@contents
+Pages = map(file -> joinpath("WorkFlow", file), readdir("WorkFlow"))
+```
