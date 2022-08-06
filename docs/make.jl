@@ -1,62 +1,33 @@
 using Documenter
 
-format = Documenter.HTML(assets = ["assets/css/ai4e.css"])
+format = Documenter.HTML(assets=["assets/css/ai4e.css"])
+
+Modeling = map(file -> joinpath("Modeling", file), readdir(joinpath(@__DIR__, "src", "Modeling")))
+Simulation = map(file -> joinpath("Simulation", file), readdir(joinpath(@__DIR__, "src", "Simulation")))
+Optimization = map(file -> joinpath("Optimization", file), readdir(joinpath(@__DIR__, "src", "Optimization")))
+Control = map(file -> joinpath("Control", file), readdir(joinpath(@__DIR__, "src", "Control")))
+CS_Base = map(file -> joinpath("CS Base", file), readdir(joinpath(@__DIR__, "src", "CS Base")))
+Tools = map(file -> joinpath("Tools", file), readdir(joinpath(@__DIR__, "src", "Tools")))
+WorkFlow = map(file -> joinpath("WorkFlow", file), readdir(joinpath(@__DIR__, "src", "WorkFlow")))
 
 makedocs(
     sitename="Ai4EDocs",
     pages=[
         "Home" => "index.md",
-        "Modeling" => Any[
-            "Modeling/DE_intro.md",
-            "Modeling/MTK_intro.md",
-            "Modeling/MTK_register.md",
-            "Modeling/WathMTKdo.md",
-            "Modeling/ProcesSys.md",
-            "Modeling/neural_network.md",
-        ],
-        "Simulation" => Any[
-            "Simulation/componementModel.md",
-            "Simulation/steadyRC.md",
-            "Simulation/MTK_heattran.md",
-            "Simulation/DE_heattran.md",
-        ],
-        "Optimization" => Any[
-            "Optimization/参数辨识实例_MTK.md",
-            "Optimization/JuMP参数辨识.md",
-            "Optimization/DE_Estim.md",
-            "Optimization/systemParaEste.md"
-        ],
-        "Control" => Any[
-            "Control/MTKMPC.md",
-            "Control/JuMPMPC.md",
-            "Control/OptimControl.md",
-            "Control/KalmanFiltering.md",
-            "Control/OptControl.md"
-        ],
-        "CS Base" => Any[
-            "CS Base/env_variable.md",
-            "CS Base/Creat and Call dll.md",
-            "CS Base/SSH_Git.md",
-        ],
-        "Tools" => Any[
-            "Tools/CoolProp.md",
-            "Tools/CSV_jl_use.md",
-            "Tools/vscode_git.md"
-        ],
-        "Workflow" => Any[
-            "WorkFlow/julia的安装.md",
-            "WorkFlow/julia_change_pkgserve.md",
-            "WorkFlow/vscodePlugin.md",
-            "WorkFlow/gitworkflow.md",
-            "WorkFlow/DocStructure.md"
-        ],
-        ],
+        "Modeling" => Modeling,
+        "Simulation" => Simulation,
+        "Optimization" => Optimization,
+        "Control" => Control,
+        "CS Base" => CS_Base,
+        "Tools" => Tools,
+        "WorkFlow" => WorkFlow,
+    ],
     format=format,
 )
 
 
 deploydocs(
-   repo="https://github.com/ai4energy/Ai4EDocs.git";
-   push_preview=true
-#    target = "../build",
+    repo="https://github.com/ai4energy/Ai4EDocs.git";
+    push_preview=true
+    #    target = "../build",
 )
