@@ -11,3 +11,5 @@
 [文档链接，供学习参考](https://ai4energy.github.io/Ai4EDocs/)
 
 PS:`./src`中包含了文档中的一些代码与相关资源
+
+hy到此一游
