@@ -8,6 +8,7 @@
     * [OptControl.jl](https://ai4energy.github.io/OptControl.jl/dev/)
     * [Ai4ELab](https://ai4energy.github.io/Ai4ELab/dev/)
     * [Ai4EComponentLib.jl](https://ai4energy.github.io/Ai4EComponentLib.jl/dev/)
+    * [Ai4EMetaPSE.jl](https://ai4energy.github.io/Ai4EMetaPSE.jl/dev/)
 
 ## Ai4EDocs简介
 
