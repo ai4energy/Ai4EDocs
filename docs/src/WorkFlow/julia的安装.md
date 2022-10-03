@@ -54,7 +54,7 @@
 
 ## 执行julia
 
-在任务栏搜索框输入cmd，打开命令提示符，输入julia，此时julia就可以执行了。
+在任务栏搜索框输入cmd，打开命令提示符，输入julia，进入Julie REPL，此时julia就可以执行了。
 ![](../assets/11.png)
 直接输入exit()，即可退出。
 
@@ -103,7 +103,7 @@
   L370.217,387.709L370.217,387.709z" />
  </g>
 </svg>
-</i>的用法输入）。
+</i>的用法输入UTF-8字符）。
 
 直接在Microsoft Store上下载Windows Terminal，打开软件后进入设置界面：
 ![打开Windows Teminal设置](../assets/12.png)
