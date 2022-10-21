@@ -1,5 +1,15 @@
 # Ai4EDocs
 
+![图 4](assets/index_picture.png)  
+
+!!! tip
+
+    * [智慧能源系统导论](https://ai4energy.github.io/enpo811203/)
+    * [OptControl.jl](https://ai4energy.github.io/OptControl.jl/dev/)
+    * [Ai4ELab](https://ai4energy.github.io/Ai4ELab/dev/)
+    * [Ai4EComponentLib.jl](https://ai4energy.github.io/Ai4EComponentLib.jl/dev/)
+    * [Ai4EMetaPSE.jl](https://ai4energy.github.io/Ai4EMetaPSE.jl/dev/)
+
 ## Ai4EDocs简介
 
 Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核心主要与建模仿真优化控制相关。文档主要特点为：
