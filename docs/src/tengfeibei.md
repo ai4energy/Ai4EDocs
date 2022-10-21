@@ -49,12 +49,3 @@
     最后，腾飞杯只是一个展示平台。比赛过后，我们的组织依旧会传承与发展，我们的目标是星辰大海~
     抛开比赛，欢迎有热情、有激情的同学加入，共同学习、成长与开发。
 
-![图 4](assets/index_picture.png)  
-
-!!! tip
-
-    * [智慧能源系统导论](https://ai4energy.github.io/enpo811203/)
-    * [OptControl.jl](https://ai4energy.github.io/OptControl.jl/dev/)
-    * [Ai4ELab](https://ai4energy.github.io/Ai4ELab/dev/)
-    * [Ai4EComponentLib.jl](https://ai4energy.github.io/Ai4EComponentLib.jl/dev/)
-    * [Ai4EMetaPSE.jl](https://ai4energy.github.io/Ai4EMetaPSE.jl/dev/)
