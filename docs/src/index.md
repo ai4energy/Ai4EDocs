@@ -9,6 +9,7 @@
     * [Ai4ELab](https://ai4energy.github.io/Ai4ELab/dev/) 虚拟仿真实验室
     * [Ai4EComponentLib.jl](https://ai4energy.github.io/Ai4EComponentLib.jl/dev/) 组件库
     * [Ai4EMetaPSE.jl](https://ai4energy.github.io/Ai4EMetaPSE.jl/dev/) 微分方程的Json文件解析器
+    * [Ai4Server](https://ai4energy.github.io/Ai4EServer/) 基于Genie.jl架构的Ai4E后端服务框架。
 
 ## Ai4EDocs简介
 
@@ -94,9 +95,15 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 ## 文档内容
 
 ```@eval
-dirs = ["Modeling","Simulation","Optimization","Control","CS Base","Tools","WorkFlow"]
+dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CS Base","Tools","WorkFlow"]
 
 "总篇数：$(sum(map(file -> length(readdir(joinpath(@__DIR__,"..","src",file))), dirs)))"
+```
+
+### 框架
+
+```@contents
+Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
 ```
 
 ### 建模
