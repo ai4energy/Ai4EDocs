@@ -2,6 +2,7 @@ using Documenter
 
 format = Documenter.HTML(assets=["assets/css/ai4e.css"])
 
+Frameworks = map(file -> joinpath("Frameworks", file), readdir(joinpath(@__DIR__, "src", "Frameworks")))
 Modeling = map(file -> joinpath("Modeling", file), readdir(joinpath(@__DIR__, "src", "Modeling")))
 Simulation = map(file -> joinpath("Simulation", file), readdir(joinpath(@__DIR__, "src", "Simulation")))
 Optimization = map(file -> joinpath("Optimization", file), readdir(joinpath(@__DIR__, "src", "Optimization")))
@@ -14,6 +15,7 @@ makedocs(
     sitename="Ai4EDocs",
     pages=[
         "Home" => "index.md",
+        "Frameworks" => Frameworks,
         "Modeling" => Modeling,
         "Simulation" => Simulation,
         "Optimization" => Optimization,
