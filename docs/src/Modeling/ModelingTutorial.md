@@ -81,7 +81,7 @@ V_{2,0}=0(V) \tag{3}
 
 为每个器件添加两个端口变量（地只加一个端口）。正极叫p，负极叫n。同时为器件取名，电源叫做source，电阻叫做resistor，电容叫做capacitor，地叫做ground。同时规定，器件索引其子要素的方式为“.”。例如，电阻正极电压的变量全名为$resistor.p.V$。如下图所示。
 
-![图 1](../assets/ModelingTutorial-13-11-03.png)  
+ ![图 2](../assets/ModelingTutorial-13-57-04.png)  
 
 
 那么我们新引入了14个变量：

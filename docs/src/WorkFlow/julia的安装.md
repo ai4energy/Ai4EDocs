@@ -14,10 +14,10 @@
 搜索[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/)。  
 ![](../assets/1.png)
 
-## 下载julia-1.7.2-win64.zip安装包
+## 下载julia-xxx-win64.zip安装包
 
 !!! note
-    v1.7.2(Feb 6,2022)为julia当前稳定版本。
+    v1.7.2(Feb 6,2022)为julia当前稳定版本。新安装时，下载最新版。
 
 首先，在搜索框中搜索julia，点击julia-releases：
 ![](../assets/2.png)
@@ -27,9 +27,9 @@
 ![](../assets/4.png)
 选择x64/：
 ![](../assets/5.png)
-然后，找到1.7版本系列：
+然后，找到最新版本系列：
 ![](../assets/6.png)
-最后，下拉找到julia-1.7.2-win64.zip安装包，点击下载。
+最后，下拉找到julia-xxx-win64.zip安装包，点击下载。
 ![](../assets/7.png)
 
 ## 解压安装
