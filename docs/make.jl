@@ -15,11 +15,11 @@ makedocs(
     sitename="Ai4EDocs",
     pages=[
         "Home" => "index.md",
-        "Frameworks" => Frameworks,
         "Modeling" => Modeling,
         "Simulation" => Simulation,
         "Optimization" => Optimization,
         "Control" => Control,
+        "Frameworks" => Frameworks,
         "CS Base" => CS_Base,
         "Tools" => Tools,
         "WorkFlow" => WorkFlow,
