@@ -100,12 +100,6 @@ dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CS Base",
 "总篇数：$(sum(map(file -> length(readdir(joinpath(@__DIR__,"..","src",file))), dirs)))"
 ```
 
-### 框架
-
-```@contents
-Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
-```
-
 ### 建模
 
 ```@contents
@@ -128,6 +122,12 @@ Pages = map(file -> joinpath("Optimization", file), readdir("Optimization"))
 
 ```@contents
 Pages = map(file -> joinpath("Control", file), readdir("Control"))
+```
+
+### 框架
+
+```@contents
+Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
 ```
 
 ### 基础知识
