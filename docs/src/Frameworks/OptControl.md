@@ -1,4 +1,4 @@
-# OptControl.jl设计思路
+# OptControl.jl设计理念
 
 !!! tip
     Contents：OptControl：最优控制问题的解释器

@@ -4,10 +4,12 @@
 
 !!! tip
 
-    * [智慧能源系统导论](https://ai4energy.github.io/enpo811203/)
-    * [OptControl.jl](https://ai4energy.github.io/OptControl.jl/dev/)
-    * [Ai4ELab](https://ai4energy.github.io/Ai4ELab/dev/)
-    * [Ai4EComponentLib.jl](https://ai4energy.github.io/Ai4EComponentLib.jl/dev/)
+    * [智慧能源系统导论](https://ai4energy.github.io/enpo811203/) 
+    * [OptControl.jl](https://ai4energy.github.io/OptControl.jl/dev/) 对MTK中ODESystem的最优控制支持包。
+    * [Ai4ELab](https://ai4energy.github.io/Ai4ELab/dev/) 虚拟仿真实验室
+    * [Ai4EComponentLib.jl](https://ai4energy.github.io/Ai4EComponentLib.jl/dev/) 组件库
+    * [Ai4EMetaPSE.jl](https://ai4energy.github.io/Ai4EMetaPSE.jl/dev/) 微分方程的Json文件解析器
+    * [Ai4Server](https://ai4energy.github.io/Ai4EServer/) 基于Genie.jl架构的Ai4E后端服务框架。
 
 ## Ai4EDocs简介
 
@@ -31,26 +33,53 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 
 ## Julia资源传送门
 
-1. [Julia中文文档](https://cn.julialang.org/)
-2. [Julia官方文档](https://julialang.org/)
-3. [Sciml总站](https://sciml.ai/)
-4. [ModelingToolkit.jl](https://mtk.sciml.ai/stable/)（符号建模包）
-5. [DifferentialEquations.jl](https://diffeq.sciml.ai/dev/)（常微分方程求解包）
-6. [NeuralPDE.jl](https://neuralpde.sciml.ai/stable/)（偏微分方程求解包）
-7. [Symbolics.jl](https://symbolics.juliasymbolics.org/dev/)（MTK依赖的符号求解包）
-8. [JuMP.jl](https://jump.dev/JuMP.jl/stable/)（优化求解器包）
-9. [DiffEqParamEstim.jl](https://diffeqparamestim.sciml.ai/dev/)（基于DE的参数辨识包）
-10. [Plots.ji](https://docs.juliaplots.org/dev/)（可视化包）
-11. [CSV.jl](https://csv.juliadata.org/stable/)
-12. [DataFrames.jl](https://dataframes.juliadata.org/stable/)（大规模数据批量处理包）
-13. [Unitful](https://painterqubits.github.io/Unitful.jl/stable/)（单位计算包）
-14. [Optimization.jl](https://optimization.sciml.ai/stable/)(Sciml优化包)
-15. [SymPy.jl](https://docs.juliahub.com/SymPy/KzewI/1.0.31/) 符号计算包（可求方程解析解），与Matlab中的符号工具包类似
-16. [EquationsSolver](https://jake484.github.io/EquationsSolver.jl/) 自制的小型方程（组）求解器
-17. [Flux.jl](https://fluxml.ai/Flux.jl/stable/) Julia机器学习包(The Julia Machine Learning Library)
-18. [OptControl.jl](https://ai4energy.github.io/OptControl.jl/dev/) 对MTK中ODESystem的最优控制支持包，**由Ai4自主开发**。
-19. [Geine.jl and Stipple.jl](https://www.genieframework.com/) Geine和Stipple的文档
-20. [Pkg.jl](https://pkgdocs.julialang.org/v1/) 包管理
+### 基础文档
+
+* [Julia中文文档](https://cn.julialang.org/)
+* [Julia官方文档](https://julialang.org/)
+* [Sciml总站](https://sciml.ai/)
+
+### 数值计算
+
+* [DifferentialEquations.jl](https://diffeq.sciml.ai/dev/)（常微分方程求解包）
+* [NeuralPDE.jl](https://neuralpde.sciml.ai/stable/)（偏微分方程求解包）
+* [JuMP.jl](https://jump.dev/JuMP.jl/stable/)（优化求解器包）
+* [DiffEqParamEstim.jl](https://diffeqparamestim.sciml.ai/dev/)（基于DE的参数辨识包）
+* [Flux.jl](https://fluxml.ai/Flux.jl/stable/) Julia机器学习包(The Julia Machine Learning Library)
+* [EquationsSolver](https://jake484.github.io/EquationsSolver.jl/) 自制的小型方程（组）求解器
+* [Optimization.jl](https://optimization.sciml.ai/stable/)(Sciml优化包)
+
+### 符号计算
+
+* [ModelingToolkit.jl](https://mtk.sciml.ai/stable/)（符号建模包）
+* [Symbolics.jl](https://symbolics.juliasymbolics.org/dev/)（MTK依赖的符号求解包）
+* [SymPy.jl](https://docs.juliahub.com/SymPy/KzewI/1.0.31/) 符号计算包（可求方程解析解），与Matlab中的符号工具包类似
+
+### 计算图形学
+
+* [Meshes.jl](https://juliageometry.github.io/Meshes.jl/stable/) 纯Julia的CGAL（计算图形学算法库）实现
+* [Gmsh.jl](https://github.com/JuliaFEM/Gmsh.jl) gmsh的Julia接口
+
+### 数据处理
+
+* [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) Julia中不同类型文件读入的统一接口（包括MeshIO）
+* [CSV.jl](https://csv.juliadata.org/stable/)
+* [DataFrames.jl](https://dataframes.juliadata.org/stable/)（大规模数据批量处理包）
+* [Unitful](https://painterqubits.github.io/Unitful.jl/stable/)（单位计算包）
+* [JSON3.jl](https://quinnj.github.io/JSON3.jl/stable/) JSON到类型的读入
+* [JSON.jl](https://github.com/JuliaIO/JSON.jl)
+
+### 可视化
+
+* [Plots.ji](https://docs.juliaplots.org/dev/)（可视化包）
+* [Pkg.jl](https://pkgdocs.julialang.org/v1/) 包管理
+* [Makie.jl](https://docs.makie.org/stable/) 高性能绘图包。
+* [PlotlyJS.jl](https://plotly.com/julia/) 网页绘图，图可拖动。
+
+### WEB框架
+
+* [Geine.jl and Stipple.jl](https://www.genieframework.com/) Julia Web 框架Geine和Stipple的文档
+* [HTTP.jl](https://juliaweb.github.io/HTTP.jl/stable/)
 
 ## 其它资源传送门
 
@@ -66,7 +95,7 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 ## 文档内容
 
 ```@eval
-dirs = ["Modeling","Simulation","Optimization","Control","CS Base","Tools","WorkFlow"]
+dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CS Base","Tools","WorkFlow"]
 
 "总篇数：$(sum(map(file -> length(readdir(joinpath(@__DIR__,"..","src",file))), dirs)))"
 ```
@@ -93,6 +122,12 @@ Pages = map(file -> joinpath("Optimization", file), readdir("Optimization"))
 
 ```@contents
 Pages = map(file -> joinpath("Control", file), readdir("Control"))
+```
+
+### 框架
+
+```@contents
+Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
 ```
 
 ### 基础知识
