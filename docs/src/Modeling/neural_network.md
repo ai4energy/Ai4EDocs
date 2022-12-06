@@ -11,7 +11,21 @@
 
 !!! note
 
-    [Flux.jl](https://fluxml.ai/Flux.jl/stable/) Julia机器学习包
+    * [Flux.jl](https://fluxml.ai/Flux.jl/stable/) Julia机器学习包
+    * 著作
+      * Pattern Recognition and Machine Learning - Christopher M. Bishop
+      * 机器学习 - 周志华
+      * [Dive into Deep Learning - 阿斯顿·张，李沐](http://zh.d2l.ai/)
+    * 博文
+      * [ApacheCN 人工智能知识树](https://home.apachecn.org/#/docs/tree/README)
+
+      * [机器学习原理](https://shunliz.gitbooks.io/machine-learning/content/)
+    * 视频
+      * [吴恩达 deeplearning.ai](https://mooc.study.163.com/university/deeplearning_ai#/c)
+
+      * [李宏毅 Course-Machine Learning](https://speech.ee.ntu.edu.tw/~hylee/)
+    * 前言
+      * [papers with code](https://paperswithcode.com/sota)
 
 ## 1 神经网络的数学内涵
 
