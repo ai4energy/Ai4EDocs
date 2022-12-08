@@ -186,7 +186,7 @@ resistor.p.V - resistor.n.V = resistor.p.I * 1
 其本质就是$U=IR$；**对外建立与其他组件连接**：
 
 ```math
-source.n.V = resistor.p.V\\
+source.p.V = resistor.p.V\\
 source.n.I + resistor.p.I = 0\\
 resistor.n.V = capacitor.p.V\\
 resistor.n.I + capacitor.p.I = 0
