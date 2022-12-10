@@ -90,7 +90,8 @@ u: 2-element Vector{Float64}:
 全部代码：
 
 ```julia
-using ModelingToolkit, GalacticOptim, Optim
+using ModelingToolkit, OptimizationOptimJL
+
 Loss = 0.0
 #number of samples
 ypre = 0
