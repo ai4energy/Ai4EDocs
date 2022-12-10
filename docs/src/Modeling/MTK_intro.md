@@ -126,7 +126,7 @@ eqs =[
     D(z) ~ x*y - β*z
 ]
 @named sys = ODESystem(eqs)
-tspan = (0.0,10.0)
+tspan = (0.0,100.0)
 u0 =[
     x => 1.0
     y => 0.0
@@ -139,6 +139,8 @@ p=[
 ]
 prob = ODEProblem(sys,u0,tspan,p)
 sol = solve(prob,Tsit5())
+using Plots
+plot(sol, idxs=(x,y,z))
 ```
 
 ---
