@@ -138,7 +138,8 @@ for t in 1:an_len
 end
 xs = LinRange(0.0, L, n)
 ys = LinRange(0.0, L, n)
-anim = @animate for i ∈ 1:an_len
+Plots.contourf(xs, ys, res[:, :, 1])
+anim = @animate for i ∈ 2:an_len
     contourf!(xs, ys, res[:, :, i])
 end
 gif(anim, "DE_trans.gif", fps=24)
