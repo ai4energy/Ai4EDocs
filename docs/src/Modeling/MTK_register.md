@@ -40,7 +40,7 @@ $$f(x,y) + x + y = 1$$
 \end{aligned}\right. 
 ```
 
-这里函数u在编程时，需要用ifelse函数来定义， 也可以用`@register_symbolic`来注册一个符号函数。
+这里函数u在编程时，需要用`ifelse`函数来定义， 也可以用`@register_symbolic`来注册一个符号函数。
 
 ---
 
