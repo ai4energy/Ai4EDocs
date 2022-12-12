@@ -84,7 +84,7 @@ plot(sol)
 
 **测试问题**：在1MPa下，求温度从300K-400K的水蒸气焓值累加和。（虽然这样做很没有意义，但是这是一种测试外部函数的有效并且简单的方法）
 
-```julia
+```example coolprop
 using ModelingToolkit,CoolProp,DifferentialEquations
 @variables t T(t)
 D = Differential(t)
@@ -108,8 +108,6 @@ plot(sol)
 ```
 
 程序可以运行并且得到了结果，
-
-![1](../assets/MTK_register-09_40_26.png)  
 
 MTK符号运算系统加上外部调用函数符号化，基本上可以解决各类仿真问题。
 
