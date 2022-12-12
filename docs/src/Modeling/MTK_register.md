@@ -40,24 +40,21 @@ $$f(x,y) + x + y = 1$$
 \end{aligned}\right. 
 ```
 
-这里函数u在编程时，很显然需要用if-else语句来描述。那么我们构造一个外部函数，这个外部函数为u，包含if-else的判断。(也可以用Ifelse包，包含了符号化的判断函数)
+这里函数u在编程时，需要用ifelse函数来定义， 也可以用`@register_symbolic`来注册一个符号函数。
 
 ---
 
 通过MTK构建：
 
-```julia
+```example e1
 using ModelingToolkit,DifferentialEquations
 @variables t y(t)
 D = Differential(t)
-function u(y)
-    if y > 100.0
-        return -10.0
-    else
-        return 10.0
-    end
-end
-@register_symbolic u(y)
+u(y) = ifelse(y>100.0, -10.0, 10.0)
+
+# u(y) = y>100.0 ? -10.0 : 10.0
+# @register_symbolic u(y)
+
 eqs = [
     D(y) ~ u(y)
 ]
@@ -66,11 +63,10 @@ eqs = [
 
 可以看到得到的方程中，u被视为函数，它的参数为y(t)。
 
-![图 1](../assets/MTK_register-09_30_48.png)  
 
 求解问题：
 
-```julia
+```example e1
 sys = structural_simplify(sys)
 u0=[y => 50.0]
 tspan = (0.0,20.0)
@@ -79,8 +75,6 @@ sol = solve(prob)
 using Plots
 plot(sol)
 ```
-
-![图 2](../assets/MTK_register-09_32_00.png)  
 
 可以看到成功求解，并且y在100附近波动。这是我们期望的结果。
 
