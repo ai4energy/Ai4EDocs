@@ -66,7 +66,7 @@ $$T_f = 400 * (1 + sin(t))$$
 
 求解的全部代码如下：
 
-```example heat
+```@example heat
 using ModelingToolkit, DifferentialEquations
 using Dates
 
@@ -125,7 +125,7 @@ println("time use:"*string(endtime - starttime))
 
 **动画**走你！
 
-```example heat
+```@example heat
 an_len = length(sol.u)
 using Plots, GR
 res = rand(n, n, an_len)

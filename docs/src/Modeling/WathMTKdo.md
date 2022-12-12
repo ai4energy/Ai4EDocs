@@ -107,7 +107,7 @@ ModelingToolkit的核心在于各种System，System作为一种数据结构，�
 
 **方程定义**：
 
-```@repl
+```@repl sym
 using Symbolics
 
 @variables x y;
@@ -120,7 +120,7 @@ A .~ 3x
 
 **微分运算**：
 
-```@repl
+```@repl sym
 @variables t
 D = Differential(t)
 z = t + t^2
@@ -130,7 +130,7 @@ expand_derivatives(D(z))
 
 **化简与符号赋值**：
 
-```@repl
+```@repl sym
 B = simplify.([t + t^2 + t + t^2  2t + 4t
                x + y + y + 2t     x^2 - x^2 + y^2])
 simplify.(substitute.(B, (Dict(x => y^2),)))

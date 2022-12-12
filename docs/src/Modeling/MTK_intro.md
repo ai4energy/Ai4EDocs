@@ -43,7 +43,7 @@ MTK，就是这样一种符号计算包。在DE中，我们构建的是方程（
 
 通过MTK构建：
 
-```example lorenz
+```@example lorenz
 @variables t u[1:3](t)
 @parameters p[1:3]
 D = Differential(t)
@@ -69,7 +69,7 @@ eqs =[
 
 因为是处理符号时，当然也可以更加具象，将符号定义为$x,y,z$
 
-```example lorenz2
+```@example lorenz2
 @variables t x(t) y(t) z(t)
 @parameters  σ ρ β
 D = Differential(t)
@@ -88,7 +88,7 @@ eqs =[
 
 在明确MTK的系统构建之后，与DifferentialEquations一样，最后需要明确定义的问题以及初值等要素。
 
-```example lorenz2
+```@example lorenz2
 tspan = (0.0,100.0)
 u0 =[
     x => 1.0
@@ -111,7 +111,7 @@ sol = solve(prob,Tsit5())
 
 全部代码：
 
-```example lorenz3
+```@example lorenz3
 using ModelingToolkit
 using DifferentialEquations
 @variables t x(t) y(t) z(t)
@@ -138,7 +138,9 @@ prob = ODEProblem(sys,u0,tspan,p)
 sol = solve(prob,Tsit5())
 using Plots
 plot(sol, idxs=(x,y,z))
+savefig("result.svg"); nothing # hide
 ```
+![](result.svg)
 
 ---
 

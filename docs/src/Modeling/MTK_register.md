@@ -46,7 +46,7 @@ $$f(x,y) + x + y = 1$$
 
 通过MTK构建：
 
-```example e1
+```@example e1
 using ModelingToolkit,DifferentialEquations
 @variables t y(t)
 D = Differential(t)
@@ -66,7 +66,7 @@ eqs = [
 
 求解问题：
 
-```example e1
+```@example e1
 sys = structural_simplify(sys)
 u0=[y => 50.0]
 tspan = (0.0,20.0)
@@ -84,7 +84,7 @@ plot(sol)
 
 **测试问题**：在1MPa下，求温度从300K-400K的水蒸气焓值累加和。（虽然这样做很没有意义，但是这是一种测试外部函数的有效并且简单的方法）
 
-```example coolprop
+```@example coolprop
 using ModelingToolkit,CoolProp,DifferentialEquations
 @variables t T(t)
 D = Differential(t)

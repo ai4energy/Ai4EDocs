@@ -207,7 +207,7 @@ resistor.n.I + capacitor.p.I = 0
     ![图 1](../assets/ModelingTutorial-09-12-16.png)  
     * 在VScode中，按下`Ctrl+Enter`可以执行光标所在行的一行代码。以下的代码可以一行一行执行，看中间结果。
 
-```example rc_model
+```@example rc_model
 using ModelingToolkit, DifferentialEquations
 
 # 定义变量
@@ -256,12 +256,12 @@ sol[V₃]
 
 再查看一下化简前的方程：
 
-```example rc_model
+```@example rc_model
 equations(rc_model)
 ```
 
 再查看一下化简后的方程：
-```example rc_model
+```@example rc_model
 equations(sys)
 ```
 
@@ -271,7 +271,7 @@ equations(sys)
 
 把组件化的过程，写成代码。
 
-```example rc_model2
+```@example rc_model2
 using ModelingToolkit, DifferentialEquations
 
 # 定义独立时间变量
