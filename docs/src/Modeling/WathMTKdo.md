@@ -107,54 +107,33 @@ ModelingToolkit的核心在于各种System，System作为一种数据结构，�
 
 **方程定义**：
 
-```julia
-julia> using Symbolics
+```@repl sym
+using Symbolics
 
-julia> @variables x y;
-
-julia> @variables A[1:3, 1:3] B[1:3, 1:3];
-
-julia> x ~ y
+@variables x y;
+@variables A[1:3, 1:3] B[1:3, 1:3];
 x ~ y
-
-julia> x - y ~ 0
 x - y ~ 0
-
-julia> A ~ B
-(broadcast(~, A, B))[1:3,1:3]
-
-julia> A .~ 3x
-(broadcast(~, A, 3x))[1:3,1:3]
+A ~ B
+A .~ 3x
 ```
 
 **微分运算**：
 
-```julia
+```@repl sym
 @variables t
 D = Differential(t)
-
 z = t + t^2
 D(z)
-# Symbolics.derivative(t + t^2, t)
-
-expand_derivatives(D(z)) # 1 + 2t
+expand_derivatives(D(z)) 
 ```
 
 **化简与符号赋值**：
 
-```julia
+```@repl sym
 B = simplify.([t + t^2 + t + t^2  2t + 4t
                x + y + y + 2t     x^2 - x^2 + y^2])
-
-2×2 Matrix{Num}:
-   2(t + t^2)   6t
- x + 2(t + y)  y^2
-
 simplify.(substitute.(B, (Dict(x => y^2),)))
-
-2×2 Matrix{Num}:
-     2(t + t^2)   6t
- y^2 + 2(t + y)  y^2
 ```
 
 还有计算雅可比矩阵、函数符号化等等符号计算的内容可查看官方文档。

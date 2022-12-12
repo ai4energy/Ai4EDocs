@@ -66,7 +66,7 @@ $$T_f = 400 * (1 + sin(t))$$
 
 求解的全部代码如下：
 
-```julia
+```@example heat
 using ModelingToolkit, DifferentialEquations
 using Dates
 
@@ -125,7 +125,7 @@ println("time use:"*string(endtime - starttime))
 
 **动画**走你！
 
-```julia
+```@example heat
 an_len = length(sol.u)
 using Plots, GR
 res = rand(n, n, an_len)
@@ -138,13 +138,12 @@ for t in 1:an_len
 end
 xs = LinRange(0.0, L, n)
 ys = LinRange(0.0, L, n)
-anim = @animate for i ∈ 1:an_len
+Plots.contourf(xs, ys, res[:, :, 1])
+anim = @animate for i ∈ 2:an_len
     contourf!(xs, ys, res[:, :, i])
 end
 gif(anim, "DE_trans.gif", fps=24)
 ```
-
-![1](../assets/DE_trans.gif)
 
 以上代码对比之前，有所改变的是：
 

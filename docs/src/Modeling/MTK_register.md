@@ -25,7 +25,7 @@ $$f(x,y) + x + y = 1$$
 
 ## 解决方案
 
-把**函数的调用符号化**——`@register`，一切问题就解决了！
+把**函数的调用符号化**——`@register_symbolic`，一切问题就解决了！
 
 也就是说，把函数名称放入符号系统中去。和定义符号变量类型，对相关函数进行声明，声明该函数纳入符号系统，即可完成操作。
 
@@ -40,24 +40,21 @@ $$f(x,y) + x + y = 1$$
 \end{aligned}\right. 
 ```
 
-这里函数u在编程时，很显然需要用if-else语句来描述。那么我们构造一个外部函数，这个外部函数为u，包含if-else的判断。(也可以用Ifelse包，包含了符号化的判断函数)
+这里函数u在编程时，需要用`ifelse`函数来定义， 也可以用`@register_symbolic`来注册一个符号函数。
 
 ---
 
 通过MTK构建：
 
-```julia
+```@example e1
 using ModelingToolkit,DifferentialEquations
 @variables t y(t)
 D = Differential(t)
-function u(y)
-    if y > 100.0
-        return -10.0
-    else
-        return 10.0
-    end
-end
-@register u(y)
+u(y) = ifelse(y>100.0, -10.0, 10.0)
+
+# u(y) = y>100.0 ? -10.0 : 10.0
+# @register_symbolic u(y)
+
 eqs = [
     D(y) ~ u(y)
 ]
@@ -66,11 +63,10 @@ eqs = [
 
 可以看到得到的方程中，u被视为函数，它的参数为y(t)。
 
-![图 1](../assets/MTK_register-09_30_48.png)  
 
 求解问题：
 
-```julia
+```@example e1
 sys = structural_simplify(sys)
 u0=[y => 50.0]
 tspan = (0.0,20.0)
@@ -80,8 +76,6 @@ using Plots
 plot(sol)
 ```
 
-![图 2](../assets/MTK_register-09_32_00.png)  
-
 可以看到成功求解，并且y在100附近波动。这是我们期望的结果。
 
 ## 实例——CoolProp
@@ -90,14 +84,14 @@ plot(sol)
 
 **测试问题**：在1MPa下，求温度从300K-400K的水蒸气焓值累加和。（虽然这样做很没有意义，但是这是一种测试外部函数的有效并且简单的方法）
 
-```julia
+```@example coolprop
 using ModelingToolkit,CoolProp,DifferentialEquations
 @variables t T(t)
 D = Differential(t)
 function u(t)
     PropsSI("H","P",1.0E6,"T",t,"Water")
 end
-@register u(t)
+@register_symbolic u(t)
 eqs = [
     D(T) ~ u(t+300.0)
 ]
@@ -114,8 +108,6 @@ plot(sol)
 ```
 
 程序可以运行并且得到了结果，
-
-![1](../assets/MTK_register-09_40_26.png)  
 
 MTK符号运算系统加上外部调用函数符号化，基本上可以解决各类仿真问题。
 

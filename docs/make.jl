@@ -13,6 +13,14 @@ WorkFlow = map(file -> joinpath("WorkFlow", file), readdir(joinpath(@__DIR__, "s
 
 makedocs(
     sitename="Ai4EDocs",
+    strict=[
+             :doctest,
+             :linkcheck,
+             :parse_error,
+             :example_block,
+             # Other available options are
+             # :autodocs_block, :cross_references, :docs_block, :eval_block, :example_block, :footnote, :meta_block, :missing_docs, :setup_block
+    ],
     pages=[
         "Home" => "index.md",
         "Modeling" => Modeling,
