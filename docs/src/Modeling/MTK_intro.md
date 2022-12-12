@@ -47,7 +47,9 @@ MTK，就是这样一种符号计算包。在DE中，我们构建的是方程（
 using ModelingToolkit
 using DifferentialEquations
 
-@variables t u(t)[1:3]@parameters p[1:3]
+@variables t u(t)[1:3]
+@parameters p[1:3]
+
 D = Differential(t)
 eqs =[
     D(u[1]) ~ p[1]*(u[2]-u[1])
