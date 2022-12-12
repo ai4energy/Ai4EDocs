@@ -43,7 +43,7 @@ MTK，就是这样一种符号计算包。在DE中，我们构建的是方程（
 
 通过MTK构建：
 
-```julia
+```example lorenz
 @variables t u[1:3](t)
 @parameters p[1:3]
 D = Differential(t)
@@ -65,13 +65,11 @@ eqs =[
 
 @variables定义了符号变量，@parameters p[1:3]定义了参数。方程由ODESystem结构体储存，可以看到其中描述“=”的符号为“~”。这些表明，上述代码在处理符号，这是一套符号描述体系！
 
-![图 1](../assets/MTK_intro-09_47_57.png)  
-
 ---
 
 因为是处理符号时，当然也可以更加具象，将符号定义为$x,y,z$
 
-```julia
+```example lorenz2
 @variables t x(t) y(t) z(t)
 @parameters  σ ρ β
 D = Differential(t)
@@ -83,7 +81,6 @@ eqs =[
 @named sys = ODESystem(eqs)
 ```
 
-![图 2](../assets/MTK_intro-09_58_45.png)  
 
 由于符号运算的展现形式更加贴近自然语言，我们几乎可以不加处理地建立与原数学方程几乎一样的符号方程描述，这是符号计算的优势之一。
 
@@ -91,7 +88,7 @@ eqs =[
 
 在明确MTK的系统构建之后，与DifferentialEquations一样，最后需要明确定义的问题以及初值等要素。
 
-```julia
+```example lorenz2
 tspan = (0.0,100.0)
 u0 =[
     x => 1.0
@@ -114,7 +111,7 @@ sol = solve(prob,Tsit5())
 
 全部代码：
 
-```julia
+```example lorenz3
 using ModelingToolkit
 using DifferentialEquations
 @variables t x(t) y(t) z(t)
