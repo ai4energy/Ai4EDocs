@@ -144,9 +144,7 @@ prob = ODEProblem(sys,u0,tspan,p)
 sol = solve(prob,Tsit5())
 using Plots
 plot(sol, idxs=(x,y,z))
-savefig("result.svg"); nothing # hide
 ```
-![](result.svg)
 
 ---
 
