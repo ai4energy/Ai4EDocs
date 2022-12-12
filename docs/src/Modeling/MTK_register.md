@@ -25,7 +25,7 @@ $$f(x,y) + x + y = 1$$
 
 ## 解决方案
 
-把**函数的调用符号化**——`@register`，一切问题就解决了！
+把**函数的调用符号化**——`@register_symbolic`，一切问题就解决了！
 
 也就是说，把函数名称放入符号系统中去。和定义符号变量类型，对相关函数进行声明，声明该函数纳入符号系统，即可完成操作。
 
@@ -57,7 +57,7 @@ function u(y)
         return 10.0
     end
 end
-@register u(y)
+@register_symbolic u(y)
 eqs = [
     D(y) ~ u(y)
 ]
@@ -97,7 +97,7 @@ D = Differential(t)
 function u(t)
     PropsSI("H","P",1.0E6,"T",t,"Water")
 end
-@register u(t)
+@register_symbolic u(t)
 eqs = [
     D(T) ~ u(t+300.0)
 ]

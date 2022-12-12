@@ -4,7 +4,7 @@ D = Differential(t)
 function u(t)
     PropsSI("H","P",1.0E6,"T",t,"Water")
 end
-@register u(t)
+@register_symbolic u(t)
 eqs = [
     D(T) ~ u(t+300.0)
 ]
