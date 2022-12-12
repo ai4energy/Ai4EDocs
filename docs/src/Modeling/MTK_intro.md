@@ -44,6 +44,9 @@ MTK，就是这样一种符号计算包。在DE中，我们构建的是方程（
 通过MTK构建：
 
 ```@example lorenz
+using ModelingToolkit
+using DifferentialEquations
+
 @variables t u[1:3](t)
 @parameters p[1:3]
 D = Differential(t)
@@ -70,6 +73,9 @@ eqs =[
 因为是处理符号时，当然也可以更加具象，将符号定义为$x,y,z$
 
 ```@example lorenz2
+using ModelingToolkit
+using DifferentialEquations
+
 @variables t x(t) y(t) z(t)
 @parameters  σ ρ β
 D = Differential(t)
