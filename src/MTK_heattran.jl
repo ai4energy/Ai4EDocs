@@ -14,7 +14,7 @@ Tf = 0.0
 A = a / δ^2
 B = a / (δ^2 / 2 + δ * λ / h)
 
-@variables t T[1:n, 1:n](t)
+@variables t (T(t))[1:n, 1:n]
 
 D = Differential(t)
 

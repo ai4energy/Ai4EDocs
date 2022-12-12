@@ -167,7 +167,7 @@ Tf = 0.0
 A = a / δ^2
 B = a / (δ^2 / 2 + δ * λ / h)
 
-@variables t T[1:n, 1:n](t)
+@variables t (T(t))[1:n, 1:n]
 
 D = Differential(t)
 
@@ -224,7 +224,7 @@ sol = solve(prob, Tsit5())
 这是有效的变量数组（矩阵）的定义方式，也就是说MTK支持变量数运算。
 
 ```julia
-@variables t T[1:n, 1:n](t)
+@variables t (T(t))[1:n, 1:n]
 ```
 
 ---
