@@ -63,7 +63,7 @@ ssh -p 8080 yjy@152.20.45.154
 
 公钥放在服务端，私钥放在需要远程登录服务端的客户端
 
-##### 产生公私钥
+##### 产生公钥和私钥
 
 ```powershell
 ssh-keygen -t rsa
@@ -100,7 +100,7 @@ ssh root@111.20.45.124 "mkdir -p .ssh && cat >> .ssh/authorized_keys" < ~/.ssh/i
 这条命令由多个语句组成，依次分解开来看：
 
 * （1）"$ ssh user@host"，表示登录远程主机；
-* （2）单引号中的mkdir .ssh && cat >> .ssh/authorized_keys，表示登录后在远程shell上执行的命令：
+* （2）双引号中的mkdir .ssh && cat >> .ssh/authorized_keys，表示登录后在远程shell上执行的命令：
 * （3）"$ mkdir -p .ssh"的作用是，如果用户主目录中的.ssh目录不存在，就创建一个；
 * （4）'cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub的作用是，将本地的公钥文件~/.ssh/id_rsa.pub，重定向追加到远程文件authorized_keys的末尾。
 
@@ -112,16 +112,16 @@ ssh root@111.20.45.124 "mkdir -p .ssh && cat >> .ssh/authorized_keys" < ~/.ssh/i
 
 基本都是文件权限的问题，比如报错too open。Linux和Windows都会出现这样的情况，相关的解决方案很多，可以直接查找。
 
-### 登录githup或者码云
+### 登录github或者码云
 
 用ssh怎么操作呢？
 
-做一个转换，githup相当于就是服务端，只需要把公钥放在服务端就可以了。在githup上更加方便，因为它都是图形化软件操作。进入设置软件，选择ssh就可以进行调试了（码云同理）。
+做一个转换，github相当于就是服务端，只需要把公钥放在服务端就可以了。在github上更加方便，因为它都是图形化软件操作。进入设置软件，选择ssh就可以进行调试了（码云同理）。
 
 配置好了之后，可以进行如下测试：
 
 ```powershell
-ssh -T git@githup.com
+ssh -T git@github.com
 （ssh -T git@gitee.com）
 ```
 
