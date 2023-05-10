@@ -24,8 +24,8 @@
 
 我们上面在命令提示符下输入msedge.exe时提示不是内部或者外部命令，而输入全路径（目录）的时候就没有问题。实际上，我们输入命令的时候，系统会在一些目录里去寻找是否有对应的命令。如果有就执行它，如果没有就冒出上面的提示。而如果输入全路径，则在给定的路径（目录）里去寻找对应的命令。这里说到的“一些目录”就是有系统的一个环境变量（PATH）所记录的目录。Windows下的PATH环境变量是以";"分割的若干个值，每个值是一个目录。Windows下的PATH环境变量可以通过"此电脑"->"属性"->"高级系统设置"->"环境变量"打开，选中Path，再点"编辑"就可以修改Path环境变量了。如果我们新建一条，把msedge.exe所在的目录加进去，然后确认退出。那再在命令提示符下就可以直接以msedge.exe启动浏览器了，而不需要再输入全路径。
 
-Linux下的PATH环境变量是以":"分割的若干个值，每个值就是一个目录。如果使用的是bash，可以以export PATH=/new/directory:$PATH命令临时修改PATH环境变量。也可以放在~/.bashrc里使得每次登录Linux的时候对PATH的修改都是有效。
+Linux下的PATH环境变量是以":"分割的若干个值，每个值就是一个目录。如果使用的是bash，可以以export PATH=/new/directory:\$PATH命令临时修改PATH环境变量。也可以放在~/.bashrc里使得每次登录Linux的时候对PATH的修改都是有效。
 
-linux下最重要的几个环境变量是PATH、INCLUDE_PATH和LD_LIBRARY_PATH。PATH决定命令到哪里去找（目录间有优先级哦，越靠近前面优先级越高），INCLUDE_PATH决定编译程序的时候系统到哪里去找那些被包含的头文件，LD_LIBRARY_PATH决定系统到哪里去找加载的共享链接库。Windows下类似。
+linux下最重要的几个环境变量是PATH、INCLUDE_PATH 和 LD_LIBRARY_PATH。PATH决定命令到哪里去找（目录间有优先级哦，越靠近前面优先级越高），INCLUDE_PATH 决定编译程序的时候系统到哪里去找那些被包含的头文件，LD_LIBRARY_PATH 决定系统到哪里去找加载的共享链接库。Windows下类似。
 
 关于环境变量可以参考[这里](./env_variable)获得更多的信息。
