@@ -4,7 +4,7 @@
 
 !!! tip
 
-    * [智慧能源系统导论](https://ai4energy.github.io/enpo811203/) 
+    * [智慧能源：从概念到实践](https://enpocourses.github.io/enpo811203/) 
     * [OptControl.jl](https://ai4energy.github.io/OptControl.jl/dev/) 对MTK中ODESystem的最优控制支持包。
     * [Ai4ELab](https://ai4energy.github.io/Ai4ELab/dev/) 虚拟仿真实验室
     * [Ai4EComponentLib.jl](https://ai4energy.github.io/Ai4EComponentLib.jl/dev/) 组件库
