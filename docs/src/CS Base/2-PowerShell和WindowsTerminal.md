@@ -96,7 +96,7 @@ Windows Terminal 是一款新一代的命令行工具，由 Microsoft 开发并�
 
 另外，Windows Terminal 也可以从 GitHub 上的源代码进行构建和安装，这需要更高级的技术知识和步骤。如果您对此感兴趣，可以访问 Windows Terminal 的 GitHub 仓库（https://github.com/microsoft/terminal）获取更多详细信息和指南。
 
-## 如何使用Winodws Terminal的emacs键绑定？ 
+## 如何使用PowerShell的emacs键绑定？ 
 
 `Set-PSReadLineOption` 是 PowerShell 的一个命令，用于设置和自定义 PowerShell 的交互式命令行编辑器 PSReadLine 的选项。
 
