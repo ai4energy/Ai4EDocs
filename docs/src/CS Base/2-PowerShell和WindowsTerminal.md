@@ -1,4 +1,9 @@
 # PowerShell和Windows Terminal
+## PowerShell初印象
+新时代，Windows也在向Linux学习。它现在有了新的强大命令行工具，PowerShell。并且微软现在赋予了它强大的命令行下管理能力。很多修改电脑的设置都可以在PowerShell下使用命令来完成。比如说在Windows下安装WSL（Windows Subsystem for Linux）就可以用管理员打开PowerShell，通过`wsl --install`命令来完成。
+
+另外，PowerShell可以 先以管理员执行`Set-ExecutionPolicy RemoteSigned`，再在配置文件中设置`Set-PSReadLineOption -EditMode emacs`来开启Emacs键绑定，从而可以使用ctrl+e等命令进行光标快速移动。这一点仅仅是可以提高输入效率，可以先忽略。
+
 ## PowerShell简介
 PowerShell 是一种强大的命令行工具和脚本语言，由 Microsoft 开发并广泛用于管理和自动化 Windows 系统和任务。与传统的命令提示符（CMD）相比，PowerShell 提供了更丰富的功能和更直观的语法，使系统管理员和开发人员能够更高效地管理和操作计算机系统。
 
@@ -209,3 +214,6 @@ Emacs 键绑定是基于 Emacs 文本编辑器的经典键盘快捷键，它提�
 这只是一小部分 Emacs 键绑定的示例，Windows Terminal 中的 Emacs 编辑模式提供了更多的键盘快捷键，以及其他类似于 Emacs 的编辑命令和操作。
 
 通过在 Windows Terminal 中设置 `EditMode` 为 "emacs"，您可以在 PowerShell 会话中使用这些 Emacs 键绑定来进行编辑和操作，提高您的命令行效率和体验。
+
+## Linux下的shell
+在linux操作系统下，类似的也有命令行模式，而且是更常用的模式。尽管很多ubuntu用户首先接触到的是其gui界面，但是事实上cli更为常用一些。大多数的系统默认的是bash。操作系统内部管理文件、设备的是kernel。我们用户通过shell来跟kernel打交道。而这个bash就是shell的一种。跟Windows下的命令提示符类似，我们在shell的提示符下可以输入不同的命令来完成一些工作。比如ls是列出当前文件夹下的内容。cp是复制文件的命令。cd是改变目录的命令等等。具体这些内容可以参考linux入门书看一看，或者看一看linux cheatsheet。
