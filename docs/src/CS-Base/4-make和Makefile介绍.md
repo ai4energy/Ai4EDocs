@@ -212,3 +212,5 @@ CMakeLists.txt还支持其他各种指令和选项，可以根据项目的需求
 总的来说，CMake提供了一种简洁而强大的方式来管理项目的构建过程，使得在不同平台和构建系统上的项目构建变得更加灵活和可维护。
 
 **注意：CMake可以根据CMakeLists.txt生成Makefile或者Visual studio的项目文件。**
+
+关于make和Makefile可以[参考这里获得更多的信息](https://seisman.github.io/how-to-write-makefile/index.html)。
