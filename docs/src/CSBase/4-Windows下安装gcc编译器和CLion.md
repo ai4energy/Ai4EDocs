@@ -141,6 +141,6 @@ GNU的目标是创建一个完全自由的操作系统，以替代传统的专�
 
 ## 视频地址
 
-[msys2安装](https://www.bilibili.com/video/BV123411T798/)
+[msys2安装](https://www.bilibili.com/video/BV1xu411y7je/)
 
-[CLion安装及Fortran插件设置](https://www.bilibili.com/video/BV1xu411y7je/)
+[CLion安装及Fortran插件设置](https://www.bilibili.com/video/BV123411T798/)
