@@ -95,7 +95,7 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 ## 文档内容
 
 ```@eval
-dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CS-Base","Tools","WorkFlow"]
+dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CSBase","Tools","WorkFlow"]
 
 "总篇数：$(sum(map(file -> length(readdir(joinpath(@__DIR__,"..","src",file))), dirs)))"
 ```
@@ -133,7 +133,7 @@ Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
 ### 基础知识
 
 ```@contents
-Pages = map(file -> joinpath("CS-Base", file), readdir("CS-Base"))
+Pages = map(file -> joinpath("CSBase", file), readdir("CSBase"))
 ```
 
 ### 工具集

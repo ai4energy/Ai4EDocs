@@ -7,7 +7,7 @@ Simulation = map(file -> joinpath("Simulation", file), readdir(joinpath(@__DIR__
 Optimization = map(file -> joinpath("Optimization", file), readdir(joinpath(@__DIR__, "src", "Optimization")))
 Control = map(file -> joinpath("Control", file), readdir(joinpath(@__DIR__, "src", "Control")))
 Frameworks = map(file -> joinpath("Frameworks", file), readdir(joinpath(@__DIR__, "src", "Frameworks")))
-CS-Base = map(file -> joinpath("CS-Base", file), readdir(joinpath(@__DIR__, "src", "CS-Base")))
+CSBase = map(file -> joinpath("CSBase", file), readdir(joinpath(@__DIR__, "src", "CSBase")))
 Tools = map(file -> joinpath("Tools", file), readdir(joinpath(@__DIR__, "src", "Tools")))
 WorkFlow = map(file -> joinpath("WorkFlow", file), readdir(joinpath(@__DIR__, "src", "WorkFlow")))
 
@@ -28,7 +28,7 @@ makedocs(
         "Optimization" => Optimization,
         "Control" => Control,
         "Frameworks" => Frameworks,
-        "CS-Base" => CS-Base,
+        "CSBase" => CSBase,
         "Tools" => Tools,
         "WorkFlow" => WorkFlow,
     ],
