@@ -100,6 +100,19 @@ dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CSBase","
 "总篇数：$(sum(map(file -> length(readdir(joinpath(@__DIR__,"..","src",file))), dirs)))"
 ```
 
+
+### 基础入门知识
+
+```@contents
+Pages = map(file -> joinpath("CSBase", file), readdir("CSBase"))
+```
+
+### 工具准备
+
+```@contents
+Pages = map(file -> joinpath("Tools", file), readdir("Tools"))
+```
+
 ### 建模
 
 ```@contents
@@ -128,18 +141,6 @@ Pages = map(file -> joinpath("Control", file), readdir("Control"))
 
 ```@contents
 Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
-```
-
-### 基础知识
-
-```@contents
-Pages = map(file -> joinpath("CSBase", file), readdir("CSBase"))
-```
-
-### 工具集
-
-```@contents
-Pages = map(file -> joinpath("Tools", file), readdir("Tools"))
 ```
 
 ### 工作流程
