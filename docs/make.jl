@@ -8,6 +8,7 @@ Optimization = map(file -> joinpath("Optimization", file), readdir(joinpath(@__D
 Control = map(file -> joinpath("Control", file), readdir(joinpath(@__DIR__, "src", "Control")))
 Frameworks = map(file -> joinpath("Frameworks", file), readdir(joinpath(@__DIR__, "src", "Frameworks")))
 CSBase = map(file -> joinpath("CSBase", file), readdir(joinpath(@__DIR__, "src", "CSBase")))
+JuliaIntro = map(file -> joinpath("JuliaIntro", file), readdir(joinpath(@__DIR__, "src", "JuliaIntro")))
 Tools = map(file -> joinpath("Tools", file), readdir(joinpath(@__DIR__, "src", "Tools")))
 WorkFlow = map(file -> joinpath("WorkFlow", file), readdir(joinpath(@__DIR__, "src", "WorkFlow")))
 
@@ -23,12 +24,13 @@ makedocs(
     ],
     pages=[
         "Home" => "index.md",
+        "CSBase" => CSBase,
+        "JuliaIntro" => JuliaIntro,
         "Modeling" => Modeling,
         "Simulation" => Simulation,
         "Optimization" => Optimization,
         "Control" => Control,
         "Frameworks" => Frameworks,
-        "CSBase" => CSBase,
         "Tools" => Tools,
         "WorkFlow" => WorkFlow,
     ],
