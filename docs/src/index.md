@@ -31,66 +31,6 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 
 ![Stable](https://img.shields.io/badge/Articles-Total_31-green.svg?style=flat-square)
 
-## Julia资源传送门
-
-### 基础文档
-
-* [Julia中文文档](https://cn.julialang.org/)
-* [Julia官方文档](https://julialang.org/)
-* [Sciml总站](https://sciml.ai/)
-
-### 数值计算
-
-* [DifferentialEquations.jl](https://diffeq.sciml.ai/dev/)（常微分方程求解包）
-* [NeuralPDE.jl](https://neuralpde.sciml.ai/stable/)（偏微分方程求解包）
-* [JuMP.jl](https://jump.dev/JuMP.jl/stable/)（优化求解器包）
-* [DiffEqParamEstim.jl](https://diffeqparamestim.sciml.ai/dev/)（基于DE的参数辨识包）
-* [Flux.jl](https://fluxml.ai/Flux.jl/stable/) Julia机器学习包(The Julia Machine Learning Library)
-* [EquationsSolver](https://jake484.github.io/EquationsSolver.jl/) 自制的小型方程（组）求解器
-* [Optimization.jl](https://optimization.sciml.ai/stable/)(Sciml优化包)
-
-### 符号计算
-
-* [ModelingToolkit.jl](https://mtk.sciml.ai/stable/)（符号建模包）
-* [Symbolics.jl](https://symbolics.juliasymbolics.org/dev/)（MTK依赖的符号求解包）
-* [SymPy.jl](https://docs.juliahub.com/SymPy/KzewI/1.0.31/) 符号计算包（可求方程解析解），与Matlab中的符号工具包类似
-
-### 计算图形学
-
-* [Meshes.jl](https://juliageometry.github.io/Meshes.jl/stable/) 纯Julia的CGAL（计算图形学算法库）实现
-* [Gmsh.jl](https://github.com/JuliaFEM/Gmsh.jl) gmsh的Julia接口
-
-### 数据处理
-
-* [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) Julia中不同类型文件读入的统一接口（包括MeshIO）
-* [CSV.jl](https://csv.juliadata.org/stable/)
-* [DataFrames.jl](https://dataframes.juliadata.org/stable/)（大规模数据批量处理包）
-* [Unitful](https://painterqubits.github.io/Unitful.jl/stable/)（单位计算包）
-* [JSON3.jl](https://quinnj.github.io/JSON3.jl/stable/) JSON到类型的读入
-* [JSON.jl](https://github.com/JuliaIO/JSON.jl)
-
-### 可视化
-
-* [Plots.ji](https://docs.juliaplots.org/dev/)（可视化包）
-* [Pkg.jl](https://pkgdocs.julialang.org/v1/) 包管理
-* [Makie.jl](https://docs.makie.org/stable/) 高性能绘图包。
-* [PlotlyJS.jl](https://plotly.com/julia/) 网页绘图，图可拖动。
-
-### WEB框架
-
-* [Geine.jl and Stipple.jl](https://www.genieframework.com/) Julia Web 框架Geine和Stipple的文档
-* [HTTP.jl](https://juliaweb.github.io/HTTP.jl/stable/)
-
-## 其它资源传送门
-
-1. [CoolProp](http://www.coolprop.org/index.html)
-2. [APMonitor-github](https://github.com/APMonitor/)
-3. [APMonitor](http://apmonitor.com/)
-4. [Greet](https://greet.es.anl.gov/)
-5. [Mqtt系列教程](https://www.hangge.com/blog/cache/detail_2347.html)
-6. [Mixed Integer Distributed Ant Colony Optimization(midaco-solver)](http://www.midaco-solver.com/)
-7. [Python的GUI开发工具PYQT](https://github.com/PyQt5/PyQt/)
-8. [Mathematica](https://tiebamma.github.io/InstallTutorial/#mathematica-1301/)
 
 ## 文档内容
 
@@ -160,3 +100,64 @@ Pages = map(file -> joinpath("Tools", file), readdir("Tools"))
 ```@contents
 Pages = map(file -> joinpath("WorkFlow", file), readdir("WorkFlow"))
 ```
+
+## 附录之Julia资源传送门
+
+### 基础文档
+
+* [Julia中文文档](https://cn.julialang.org/)
+* [Julia官方文档](https://julialang.org/)
+* [Sciml总站](https://sciml.ai/)
+
+### 数值计算
+
+* [DifferentialEquations.jl](https://diffeq.sciml.ai/dev/)（常微分方程求解包）
+* [NeuralPDE.jl](https://neuralpde.sciml.ai/stable/)（偏微分方程求解包）
+* [JuMP.jl](https://jump.dev/JuMP.jl/stable/)（优化求解器包）
+* [DiffEqParamEstim.jl](https://diffeqparamestim.sciml.ai/dev/)（基于DE的参数辨识包）
+* [Flux.jl](https://fluxml.ai/Flux.jl/stable/) Julia机器学习包(The Julia Machine Learning Library)
+* [EquationsSolver](https://jake484.github.io/EquationsSolver.jl/) 自制的小型方程（组）求解器
+* [Optimization.jl](https://optimization.sciml.ai/stable/)(Sciml优化包)
+
+### 符号计算
+
+* [ModelingToolkit.jl](https://mtk.sciml.ai/stable/)（符号建模包）
+* [Symbolics.jl](https://symbolics.juliasymbolics.org/dev/)（MTK依赖的符号求解包）
+* [SymPy.jl](https://docs.juliahub.com/SymPy/KzewI/1.0.31/) 符号计算包（可求方程解析解），与Matlab中的符号工具包类似
+
+### 计算图形学
+
+* [Meshes.jl](https://juliageometry.github.io/Meshes.jl/stable/) 纯Julia的CGAL（计算图形学算法库）实现
+* [Gmsh.jl](https://github.com/JuliaFEM/Gmsh.jl) gmsh的Julia接口
+
+### 数据处理
+
+* [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) Julia中不同类型文件读入的统一接口（包括MeshIO）
+* [CSV.jl](https://csv.juliadata.org/stable/)
+* [DataFrames.jl](https://dataframes.juliadata.org/stable/)（大规模数据批量处理包）
+* [Unitful](https://painterqubits.github.io/Unitful.jl/stable/)（单位计算包）
+* [JSON3.jl](https://quinnj.github.io/JSON3.jl/stable/) JSON到类型的读入
+* [JSON.jl](https://github.com/JuliaIO/JSON.jl)
+
+### 可视化
+
+* [Plots.ji](https://docs.juliaplots.org/dev/)（可视化包）
+* [Pkg.jl](https://pkgdocs.julialang.org/v1/) 包管理
+* [Makie.jl](https://docs.makie.org/stable/) 高性能绘图包。
+* [PlotlyJS.jl](https://plotly.com/julia/) 网页绘图，图可拖动。
+
+### WEB框架
+
+* [Geine.jl and Stipple.jl](https://www.genieframework.com/) Julia Web 框架Geine和Stipple的文档
+* [HTTP.jl](https://juliaweb.github.io/HTTP.jl/stable/)
+
+## 附录之其它资源传送门
+
+1. [CoolProp](http://www.coolprop.org/index.html)
+2. [APMonitor-github](https://github.com/APMonitor/)
+3. [APMonitor](http://apmonitor.com/)
+4. [Greet](https://greet.es.anl.gov/)
+5. [Mqtt系列教程](https://www.hangge.com/blog/cache/detail_2347.html)
+6. [Mixed Integer Distributed Ant Colony Optimization(midaco-solver)](http://www.midaco-solver.com/)
+7. [Python的GUI开发工具PYQT](https://github.com/PyQt5/PyQt/)
+8. [Mathematica](https://tiebamma.github.io/InstallTutorial/#mathematica-1301/)
