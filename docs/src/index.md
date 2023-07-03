@@ -95,7 +95,7 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 ## 文档内容
 
 ```@eval
-dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CSBase","JuliaIntro","Tools","WorkFlow"]
+dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CSBase","JuliaIntro","IotBigdataCloud","Tools","WorkFlow"]
 
 "总篇数：$(sum(map(file -> length(readdir(joinpath(@__DIR__,"..","src",file))), dirs)))"
 ```
@@ -117,6 +117,12 @@ Pages = map(file -> joinpath("Tools", file), readdir("Tools"))
 
 ```@contents
 Pages = map(file -> joinpath("JuliaIntro", file), readdir("JuliaIntro"))
+```
+
+### 物联网、大数据和云计算
+
+```@contents
+Pages = map(file -> joinpath("IotBigdataCloud", file), readdir("IotBigdataCloud"))
 ```
 
 ### 建模

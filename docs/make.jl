@@ -9,6 +9,7 @@ Control = map(file -> joinpath("Control", file), readdir(joinpath(@__DIR__, "src
 Frameworks = map(file -> joinpath("Frameworks", file), readdir(joinpath(@__DIR__, "src", "Frameworks")))
 CSBase = map(file -> joinpath("CSBase", file), readdir(joinpath(@__DIR__, "src", "CSBase")))
 JuliaIntro = map(file -> joinpath("JuliaIntro", file), readdir(joinpath(@__DIR__, "src", "JuliaIntro")))
+IotBigdataCloud = map(file -> joinpath("IotBigdataCloud", file), readdir(joinpath(@__DIR__, "src", "IotBigdataCloud")))
 Tools = map(file -> joinpath("Tools", file), readdir(joinpath(@__DIR__, "src", "Tools")))
 WorkFlow = map(file -> joinpath("WorkFlow", file), readdir(joinpath(@__DIR__, "src", "WorkFlow")))
 
@@ -26,6 +27,7 @@ makedocs(
         "Home" => "index.md",
         "CSBase" => CSBase,
         "JuliaIntro" => JuliaIntro,
+        "IotBigdataCloud" => IotBigdataCloud,        
         "Modeling" => Modeling,
         "Simulation" => Simulation,
         "Optimization" => Optimization,
