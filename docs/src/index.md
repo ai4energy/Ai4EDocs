@@ -107,12 +107,6 @@ dirs = ["Frameworks","Modeling","Simulation","Optimization","Control","CSBase","
 Pages = map(file -> joinpath("CSBase", file), readdir("CSBase"))
 ```
 
-### 工具准备
-
-```@contents
-Pages = map(file -> joinpath("Tools", file), readdir("Tools"))
-```
-
 ### Julia入门
 
 ```@contents
@@ -155,7 +149,13 @@ Pages = map(file -> joinpath("Control", file), readdir("Control"))
 Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
 ```
 
-### 工作流程
+### 附录之工具准备
+
+```@contents
+Pages = map(file -> joinpath("Tools", file), readdir("Tools"))
+```
+
+### 附录之工作流程
 
 ```@contents
 Pages = map(file -> joinpath("WorkFlow", file), readdir("WorkFlow"))

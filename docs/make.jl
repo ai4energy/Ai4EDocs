@@ -2,14 +2,14 @@ using Documenter
 
 format = Documenter.HTML(assets=["assets/css/ai4e.css"])
 
+CSBase = map(file -> joinpath("CSBase", file), readdir(joinpath(@__DIR__, "src", "CSBase")))
+JuliaIntro = map(file -> joinpath("JuliaIntro", file), readdir(joinpath(@__DIR__, "src", "JuliaIntro")))
+IotBigdataCloud = map(file -> joinpath("IotBigdataCloud", file), readdir(joinpath(@__DIR__, "src", "IotBigdataCloud")))
 Modeling = map(file -> joinpath("Modeling", file), readdir(joinpath(@__DIR__, "src", "Modeling")))
 Simulation = map(file -> joinpath("Simulation", file), readdir(joinpath(@__DIR__, "src", "Simulation")))
 Optimization = map(file -> joinpath("Optimization", file), readdir(joinpath(@__DIR__, "src", "Optimization")))
 Control = map(file -> joinpath("Control", file), readdir(joinpath(@__DIR__, "src", "Control")))
 Frameworks = map(file -> joinpath("Frameworks", file), readdir(joinpath(@__DIR__, "src", "Frameworks")))
-CSBase = map(file -> joinpath("CSBase", file), readdir(joinpath(@__DIR__, "src", "CSBase")))
-JuliaIntro = map(file -> joinpath("JuliaIntro", file), readdir(joinpath(@__DIR__, "src", "JuliaIntro")))
-IotBigdataCloud = map(file -> joinpath("IotBigdataCloud", file), readdir(joinpath(@__DIR__, "src", "IotBigdataCloud")))
 Tools = map(file -> joinpath("Tools", file), readdir(joinpath(@__DIR__, "src", "Tools")))
 WorkFlow = map(file -> joinpath("WorkFlow", file), readdir(joinpath(@__DIR__, "src", "WorkFlow")))
 
