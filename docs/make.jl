@@ -5,6 +5,7 @@ format = Documenter.HTML(assets=["assets/css/ai4e.css"])
 CSBase = map(file -> joinpath("CSBase", file), readdir(joinpath(@__DIR__, "src", "CSBase")))
 JuliaIntro = map(file -> joinpath("JuliaIntro", file), readdir(joinpath(@__DIR__, "src", "JuliaIntro")))
 IotBigdataCloud = map(file -> joinpath("IotBigdataCloud", file), readdir(joinpath(@__DIR__, "src", "IotBigdataCloud")))
+CSAdv = map(file -> joinpath("CSAdv", file), readdir(joinpath(@__DIR__, "src", "CSAdv")))
 Modeling = map(file -> joinpath("Modeling", file), readdir(joinpath(@__DIR__, "src", "Modeling")))
 Simulation = map(file -> joinpath("Simulation", file), readdir(joinpath(@__DIR__, "src", "Simulation")))
 Optimization = map(file -> joinpath("Optimization", file), readdir(joinpath(@__DIR__, "src", "Optimization")))
@@ -27,7 +28,8 @@ makedocs(
         "Home" => "index.md",
         "CSBase" => CSBase,
         "JuliaIntro" => JuliaIntro,
-        "IotBigdataCloud" => IotBigdataCloud,        
+        "IotBigdataCloud" => IotBigdataCloud, 
+        "CSAdv" => CSAdv,       
         "Modeling" => Modeling,
         "Simulation" => Simulation,
         "Optimization" => Optimization,
