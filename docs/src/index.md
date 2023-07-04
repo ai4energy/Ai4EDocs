@@ -53,11 +53,6 @@ Pages = map(file -> joinpath("CSBase", file), readdir("CSBase"))
 Pages = map(file -> joinpath("JuliaIntro", file), readdir("JuliaIntro"))
 ```
 
-### 物联网、大数据和云计算
-
-```@contents
-Pages = map(file -> joinpath("IotBigdataCloud", file), readdir("IotBigdataCloud"))
-```
 ### 理解计算进阶
 
 ```@contents
@@ -88,7 +83,13 @@ Pages = map(file -> joinpath("Optimization", file), readdir("Optimization"))
 Pages = map(file -> joinpath("Control", file), readdir("Control"))
 ```
 
-### 框架
+### 物联网、大数据和云计算
+
+```@contents
+Pages = map(file -> joinpath("IotBigdataCloud", file), readdir("IotBigdataCloud"))
+```
+
+### Ai4Energy系统框架
 
 ```@contents
 Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
