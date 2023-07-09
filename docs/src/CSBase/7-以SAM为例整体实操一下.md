@@ -130,8 +130,11 @@ SAM版本的标签
 
 9. 测试构建结果。
 
-1. 下载并安装Visual Studio Community 2022
-如果您的计算机上尚未安装Visual Studio Community 2022 (VS 2022)，请从https://visualstudio.microsoft.com/下载并安装。
+   
+
+   1.下载并安装Visual Studio Community 2022
+
+   如果您的计算机上尚未安装Visual Studio Community 2022 (VS 2022)，请从https://visualstudio.microsoft.com/下载并安装。
 
 使用VS 2022需要一个免费的Microsoft账户，当您首次启动程序时，系统会提示您创建或输入账户。
 
@@ -145,6 +148,8 @@ SAM版本的标签
 
 启动VS 2022并登录到您的Microsoft账户或创建一个新账户。
 
+
+
 2. 下载并构建wxWidgets 3.2.0
 SAM的用户界面使用的是wxWidgets 3.2.0，这是截至2022年7月7日的最新稳定版本。其他版本的wxWidgets可能与SAM兼容也可能不兼容。您可以从https://www.wxwidgets.org/downloads/下载不同版本的wxWidgets。在页面底部的"Other Downloads"下的GitHub Release Archive中，提供了以前的版本。
 
@@ -152,9 +157,11 @@ SAM的用户界面使用的是wxWidgets 3.2.0，这是截至2022年7月7日的�
 
 启动VS 2022并打开c:/wxWidgets-3.2.0/build/msw/wx_vc17.sln解决方案文件。该目录中有适用于其他版本的Visual Studio的项目文件，因此请确保打开vc17文件。vc17解决方案适用于VS 2022。
 
-构建64位的Debug和Release版本：在VS 2022的工具栏中，选择Release配置和x64平台，然后按F7键或从Build菜单中选择Build Solution。构建完成后，选择Debug x64并进行构建。
+构建64位的Debug和Release版本：在VS 2022的工具栏中，选择Release配置和x64平台，然后按F7键或从Build菜单中选择Build Solution。构建完成后，选择Debug x64并进行构建（24个项目都要构建）。
 
 如果构建成功，您应该会看到构建了24个项目成功的消息。在c:/wxWidgets-3.2.0/build/msw中，您还应该看到vc_x64-mswu和vc_x64-mswud文件夹，每个文件夹中都有几个文件夹和.pch文件。
+
+
 
 3. 下载并安装CMake
 SAM需要CMake 3.24或更高版本来为Windows、Linux和Mac生成构建文件。
@@ -165,35 +172,45 @@ SAM需要CMake 3.24或更高版本来为Windows、Linux和Mac生成构建文件�
 
 安装程序应自动将C:/Program Files/CMake/bin添加到Windows系统路径中。要验证，请在Windows开始菜单中输入"env"，打开"环境变量"窗口，双击系统变量下的Path变量。如果路径列表中没有该路径，您可以手动添加。
 
-4.
-
- 克隆并构建Google Test
+4.克隆并构建Google Test
 SAM的代码存储库依赖于Google Test C++单元测试框架。
 
 从https://github.com/google/googletest.git克隆Google Test。在命令窗口中执行以下命令：
 
+```
 cd path/to/my/repos
 git clone https://github.com/google/googletest.git
+```
+
 在问题https://github.com/NREL/ssc/issues/806解决之前，切换到提交b85864c64758dec007208e56af933fc3f52044ee：
 
+```
 cd path/to/googletest
 git checkout b85864c64758dec007208e56af933fc3f52044ee
-这样就会显示HEAD is now at b85864c6 Eliminate the legacy GTEST_COMPILE_ASSERT_ macro.
+```
 
-进入包含ci、docs、googlemock和googletest的顶级googletest文件夹，并创建一个build文件夹：
+这样就会显示HEAD is now at b85864c6 Eliminate the legacy GTEST_COMPILE_ASSERT_ macro.（这个问题如果已经解决，则不需要进行上述步骤，文件会直接被完整克隆下来）
 
+进入包含ci、docs、googlemock和googletest的顶级googletest文件夹，并创建一个build文件夹（也可以通过鼠标在对应位置创建文件夹）：
+
+```
 mkdir path/to/googletest/build
-进入刚创建的build文件夹：
+```
+
+进入刚创建的build文件夹（建议创建文件夹的位置与示例相同，如果不同，进行命令行操作时，注意要输入与之相对应的正确路径）：
 
 cd path/to/googletest/build
 运行CMake生成Visual Studio项目文件：
 
 请注意，在CMake命令的末尾使用两个句点..，以确保命令能够找到父文件夹中的CMakeLists.txt文件。
 
+```
 cmake -G "Visual Studio 17 2022" -DCMAKE_CONFIGURATION_TYPES="Release;Debug" -Dgtest_force_shared_crt=ON ..
+```
+
 如果CMake成功，您应该会看到path/to/googletest/build/googletest/gtest.sln文件。
 
-在VS 2022中打开gtest.sln文件，并构建x64的Debug和Release配置。
+在VS 2022中打开gtest.sln文件，并构建x64的Debug和Release配置（步骤同第二步wxWidgets的配置）。
 
 如果构建成功，您应该会在path/to/googletest/build/lib中看到包含gtest.lib等文件的Release和Debug文件夹。
 
@@ -201,17 +218,39 @@ cmake -G "Visual Studio 17 2022" -DCMAKE_CONFIGURATION_TYPES="Release;Debug" -Dg
 5. 克隆SAM代码存储库
 创建一个父文件夹来存储这些存储库，例如path/to/sam_dev：
 
+```
 mkdir path/to/sam_dev
+```
+
 将每个存储库克隆到父文件夹中。
 
+```
 cd path/to/sam_dev
+```
+
+```
 git clone https://github.com/nrel/lk
+```
+
+```
 git clone https://github.com/nrel/wex
+```
+
+```
 git clone https://github.com/nrel/ssc
+```
+
+```
 git clone https://github.com/nrel/sam
+```
+
 如果您可以访问SAM-private存储库以构建官方的NREL版本的SAM，请选择使用Web浏览器身份验证方式验证您的GitHub.com账户是否有权访问该存储库：
 
+```
 git clone https://github.com/nrel/sam-private
+```
+
+
 6. 设置环境变量
 SAM的构建工具使用Windows环境变量来确定它所需文件在计算机上的存储位置。
 
@@ -223,22 +262,30 @@ SAM的构建工具使用Windows环境变量来确定它所需文件在计算机�
 
 例如，如果您将LK存储库放在c:/sam_dev/lk中，您将把环境变量的名称设置为"LKDIR"，其值设置为"c:/sam_dev/lk"（不需要输入引号）。
 
-LKDIR	path/to/sam_dev/lk
-WEXDIR	path/to/sam_dev/wex
-SSCDIR	path/to/sam_dev/ssc
-SAMNTDIR	path/to/sam_dev/sam
-RAPIDJSONDIR*	path/to/sam_dev/ssc
+| LKDIR        | path/to/sam_dev/lk  |
+| ------------ | :------------------ |
+| WEXDIR       | path/to/sam_dev/wex |
+| SSCDIR       | path/to/sam_dev/ssc |
+| SAMNTDIR     | path/to/sam_dev/sam |
+| RAPIDJSONDIR | path/to/sam_dev/ssc |
+
 *RAPIDJSONDIR是一个单独的环境变量，用于支持不依赖于SSC的WEX构建。
 
 如果您可以访问SAM-private存储库以构建官方的NREL版本的SAM：
 
-SAMNRELDIR	path/to/sam_dev/SAM-private
+| SAMNRELDIR | path/to/sam_dev/SAM-private |
+| ---------- | --------------------------- |
+
 创建以下用户变量，指向Google Test、wxWidgets和CMake的文件夹：
 
-GTDIR	path/to/googletest
-WXMSW3	path/to/wxWidgets-3.2.0
-CMAKEBUILDDIR	path/to/sam_dev/build
+| GTDIR         | path/to/googletest      |
+| ------------- | ----------------------- |
+| WXMSW3        | path/to/wxWidgets-3.2.0 |
+| CMAKEBUILDDIR | path/to/sam_dev/build   |
+
 关闭系统属性窗口。
+
+
 
 7. 生成 SAM Visual Studio 2022 项目文件
 这一步是在首次构建 SAM 以及从 LK、WEX、SSC 或 SAM 存储库中添加或移除 .cpp 源文件后所需的。
@@ -318,49 +365,68 @@ SSC、WEX 和 LK 的文件夹等其他文件和文件夹。
 
 如果出现有关缺少文件的构建错误，请检查环境变量以确保它们被正确命名并指向正确的文件夹。
 
-CMake 选项
+CMake 选项:
 
 请注意，每个选项在 cmake 命令中的前面都有字母 "D"。
 
-CMAKE_CONFIGURATION_TYPES
+- CMAKE*CONFIGURATION*TYPES
 
-构建调试、发布版本或两个版本的选项。
 
-"Debug" = 为调试版本构建文件。如果你打算使用 VS 2022 的调试工具，请选择此选项。
+​       构建调试、发布版本或两个版本的选项。
+
+```
+"Debug" = 为调试版本构建文件。如果你打算使用 VS 2022 的调试工具，请选择此选项。 
 "Release" = 为发布版本构建文件。选择此选项可在不使用 VS 2022 的调试工具的情况下运行 SAM。
 "Debug;Release" = 为调试和发布版本构建文件。
-SAM_SKIP_AUTOGEN
+```
 
-跳过从 export_config 自动生成 SAMAPI 文件。SAMAPI 文件用于 PySAM Python 包。
+-  SAM*SKIP*AUTOGEN
 
+
+​       跳过从 export_config 自动生成 SAMAPI 文件。SAMAPI 文件用于 PySAM    Python 包。
+
+```
 1 = 跳过 SAMAPI 文件的生成。当不需要生成 SAMAPI 文件时，使用此选项可以加快构建时间。
-0 = 重新生成文件。如果你正在向 SSC 的 Develop 或 Patch 分支提交添加、删除或修改输入或输出变量，或添加或删除计算模块的代码，请使用此选项。
-SAMAPI_EXPORT
+0 = 重新生成文件。如果你正在向 SSC 的 Develop 或 Patch 分支提交添加、删除或修改输入或输出变量，或添加或删除计算模块的代码，请使用此选项。 
+```
 
-将 SSC 二进制文件导出到 SAM_api 文件夹。这些文件用于 PySAM Python 包。（Unix 还会编译 SAM_API 的库文件）。
+- SAMAPI_EXPORT
 
+​       将 SSC 二进制文件导出到 SAM*api 文件夹。这些文件用于 PySAM Python 包。（Unix 还会编译 SAM*API 的库文件）。
+
+```
 1 = 导出二进制文件。如果你正在向 SSC 的 Develop 或 Patch 分支提交添加、删除或修改输入或输出变量，或添加或删除计算模块的代码，请使用此选项。
 0 = 不导出。当不需要构建 PySAM 文件时，使用此选项可以加快构建时间。
-SAMPRIVATE
+```
 
-为官方的 NREL 发行版本的 SAM 构建解决方案文件。
+-  SAMPRIVATE
 
+​        为官方的 NREL 发行版本的 SAM 构建解决方案文件。
+
+```
 1 = 在解决方案中包括私有 (SAM) 和开源 (SAMOS) 项目。如果你正在构建官方的 NREL 发行版本并且可以访问私有的 SAM-private 存储库，请使用此选项。
 0 = 在解决方案中只包括开源 (SAMOS) 项目。如果你正在构建 SAM 的开源版本，请使用此选项。
-CMAKE_SYSTEM_VERSION CMake 版本号。
+```
+
+-  CMAKE*SYSTEM*VERSION CMake 版本号。
 
 （可选，但推荐）：在 path/to/sam_dev 文件夹中添加一个 .editorconfig 文件，以确保你的代码与项目标准一致的格式化。
+
+
 
 8. 构建 SAM
 启动 VS 2022，打开上一步中的 system_advisor_model.sln 解决方案文件。
 
 在大多数情况下，你只需要构建 SAMOS 项目：
 
-在解决方案资源管理器中选择 SAMOS 项目（如果看不到解决方案资源管理器，请按 Ctrl+; 显示它）。
+- 在解决方案资源管理器中选择 SAMOS 项目（如果看不到解决方案资源管理器，请按 Ctrl+; 显示它）。
 
-从窗口顶部的工具栏中选择 Release 或 Debug。
 
-从“生成”菜单中选择“构建 SAMOS”（或按 Ctrl+B）。这将从 SAM、SSC、WEX 和 LK 以及其他依赖项目构建出 SAM 的可执行版本。
+- 从窗口顶部的工具栏中选择 Release 或 Debug。
+
+
+- 从“生成”菜单中选择“构建 SAMOS”（或按 Ctrl+B）。这将从 SAM、SSC、WEX 和 LK 以及其他依赖项目构建出 SAM 的可执行版本。
+
 
 构建解决方案中的所有项目比仅构建 SAMOS 需要更长时间，会创建 SDKtoool 和 TCSconsole 的可执行文件，并生成大量用于 PySAM 的 API 文件，你可能不需要。
 
@@ -375,6 +441,8 @@ CMAKE_SYSTEM_VERSION CMake 版本号。
 如果你的代码贡献涉及添加或更改输入的默认值，你应该在构建中包含 export_config 和 SAM_api，以更新用于 PySAM 的文件中的默认值。这需要在上面的 cmake 命令中使用 -DSAM_SKIP_AUTOGEN=0 和 -DSAMAPI_EXPORT=1，以便这些项目在你的 Visual Studio 解决方案中可用。为了避免同时运行两个作业时的冲突，你只需要构建一个 Release 版本即可。（对于此目的来说，构建调试和发布版本是多余的，例如，没有 export_configd.exe。）
 
 你还可以使用批量构建来选择要构建的项目：在“生成”菜单中，点击“批量生成”。
+
+
 
 9. 测试构建
 在构建解决方案后，通过启动 SAM 并运行模拟来
