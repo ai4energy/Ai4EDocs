@@ -45,12 +45,12 @@
 ## 循环
    您可以使用循环结构重复执行特定的代码块。Julia中的循环结构包括`for`循环和`while`循环。
    ```julia
-   # 使用for循环
+   #使用for循环
    for i in 1:5
        println(i)
    end
 
-   # 使用while循环
+   #使用while循环
    x = 1
    while x <= 5
        println(x)
