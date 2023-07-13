@@ -29,7 +29,7 @@ Ai4EDocs是Ai4E小组在学习中整理的一些可操作案例。案例的核�
 
 欢迎贡献文档！
 
-![Stable](https://img.shields.io/badge/Articles-Total_31-green.svg?style=flat-square)
+![Stable](https://img.shields.io/badge/Articles-Total_84-green.svg?style=flat-square)
 
 
 ## 文档内容
@@ -171,5 +171,3 @@ Pages = map(file -> joinpath("WorkFlow", file), readdir("WorkFlow"))
 4. [Greet](https://greet.es.anl.gov/)
 5. [Mqtt系列教程](https://www.hangge.com/blog/cache/detail_2347.html)
 6. [Mixed Integer Distributed Ant Colony Optimization(midaco-solver)](http://www.midaco-solver.com/)
-7. [Python的GUI开发工具PYQT](https://github.com/PyQt5/PyQt/)
-8. [Mathematica](https://tiebamma.github.io/InstallTutorial/#mathematica-1301/)
