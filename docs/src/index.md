@@ -101,6 +101,18 @@ Pages = map(file -> joinpath("IotBigdataCloud", file), readdir("IotBigdataCloud"
 Pages = map(file -> joinpath("Frameworks", file), readdir("Frameworks"))
 ```
 
+### Golang简介
+
+```@contents
+Pages = map(file -> joinpath("GolangIntro", file), readdir("GolangIntro"))
+```
+
+### StepByStep练习
+
+```@contents
+Pages = map(file -> joinpath("step-by-step", file), readdir("step-by-step"))
+```
+
 ### 附录之工具准备
 
 ```@contents

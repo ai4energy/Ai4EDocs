@@ -14,6 +14,8 @@ IotBigdataCloud = map(file -> joinpath("IotBigdataCloud", file), readdir(joinpat
 Frameworks = map(file -> joinpath("Frameworks", file), readdir(joinpath(@__DIR__, "src", "Frameworks")))
 Tools = map(file -> joinpath("Tools", file), readdir(joinpath(@__DIR__, "src", "Tools")))
 WorkFlow = map(file -> joinpath("WorkFlow", file), readdir(joinpath(@__DIR__, "src", "WorkFlow")))
+GolangIntro = map(file -> joinpath("GolangIntro", file), readdir(joinpath(@__DIR__, "src", "GolangIntro")))
+step-by-step = map(file -> joinpath("step-by-step", file), readdir(joinpath(@__DIR__, "src", "step-by-step")))
 
 makedocs(
     sitename="Ai4EDocs",
@@ -39,6 +41,8 @@ makedocs(
         "Frameworks" => Frameworks,
         "Tools" => Tools,
         "WorkFlow" => WorkFlow,
+        "GolangIntro" => GolangIntro,
+        "step-by-step" => step-by-step,
     ],
     format=format,
 )
