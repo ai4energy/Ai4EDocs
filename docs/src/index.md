@@ -110,7 +110,7 @@ Pages = map(file -> joinpath("GolangIntro", file), readdir("GolangIntro"))
 ### StepByStep练习
 
 ```@contents
-Pages = map(file -> joinpath("step-by-step", file), readdir("step-by-step"))
+Pages = map(file -> joinpath("StepByStep", file), readdir("StepByStep"))
 ```
 
 ### 附录之工具准备
