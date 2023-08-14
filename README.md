@@ -10,4 +10,10 @@
 
 [文档链接，供学习参考](https://ai4energy.github.io/Ai4EDocs/)
 
+本地编译markdown文件到html请使用如下命令：
+```shell
+julia --project=docs/ -e 'using Pkg; Pkg.update(); Pkg.instantiate()'
+julia --project=docs/ docs/make.jl
+``` 
+
 PS:`./src`中包含了文档中的一些代码与相关资源

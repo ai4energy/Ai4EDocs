@@ -21,7 +21,7 @@
 
 在ModellingToolkit的Optimal Control中，有关于ControlSystem的描述。但经过实验测试，ControlSystem并不能很好地求解“过程控制量”的值。
 
-因为MTK使用runge_kutta_discretize（龙格库塔离散）函数将问题离散。问题离散后，传入OptimizationSystem，而OptimizationSystem目前有一个缺陷——不能接受问题的约束。所以，即使用龙格库塔离散离散出控制过程中的多个状态量，在变量没有约束时，优化结果没有意义。（离散的概念在[微分方程参数辨识](../Optimization/DE_Estim.md)中有提及）
+因为MTK使用runge_kutta_discretize（龙格库塔离散）函数将问题离散。问题离散后，传入OptimizationSystem，而OptimizationSystem目前有一个缺陷——不能接受问题的约束。所以，即使用龙格库塔离散离散出控制过程中的多个状态量，在变量没有约束时，优化结果没有意义。（离散的概念在[微分方程参数辨识](../Optimization/95-微分方程参数辨识实例.md)中有提及）
 在实例过后，这一点会有清晰的体现。
 
 ## MTK中的OptimizationSystem

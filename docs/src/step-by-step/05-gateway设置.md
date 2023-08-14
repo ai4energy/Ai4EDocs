@@ -172,13 +172,23 @@ location /apps/ {
 
 下面解释一下这段配置：
 
-1. **location /apps/**: 这表示所有以 `/apps/` 开头的请求都会进入这个配置块。
+1. **`location /apps/`**: 这表示所有以 `/apps/` 开头的请求都会进入这个配置块。
 
-2. **rewrite ^/apps(/.*)$ $1 break;**: 这行代码的作用是去掉 URL 中的 `/apps` 前缀。例如，如果有一个请求的 URL 是 `mydomain.com/apps/somepath`，它会被重写为 `apps.mysomedomain.com/somepath`。
+2. **`rewrite ^/apps(/.*)$ $1 break;`**: 这行代码的作用是去掉 URL 中的 `/apps` 前缀。例如，如果有一个请求的 URL 是 `mydomain.com/apps/somepath`，它会被重写为 `apps.mysomedomain.com/somepath`。
 
-3. **proxy_pass http://apps.mysomedomain.com;**: 这行代码将请求转发到 `apps.mysomedomain.com`，这是后端服务器的地址。
+3. **`proxy_pass http://apps.mysomedomain.com;`**: 这行代码将请求转发到 `apps.mysomedomain.com`，这是后端服务器的地址。
 
-4. **proxy_set_header**: 这些指令设置代理请求的 HTTP 头部信息。例如，`proxy_set_header Host $host;` 保证了原始请求的 `Host` 头部信息被传递到后端服务器。
+4. **`proxy_set_header`**: 这些指令设置代理请求的 HTTP 头部信息。例如，`proxy_set_header Host $host;` 保证了原始请求的 `Host` 头部信息被传递到后端服务器。
 
 这种配置非常有用，特别是当您希望将一个域名下的多个路径反向代理到不同的后端服务时。通过将特定路径（如 `/apps`）代理到另一个域名或服务，您可以轻松地在同一个域名下组织和管理多个服务。
+
+## 跨节点的代理
+
+如果我们在网关机A上装了nginx-proxy，在同一个网段上有个服务器B，在B上启用了docker-compose，设置了virtual_host，要是想让nginx-proxy把某些服务的backend设置成B上的这个docker-compose该如何做呢？
+
+如果你想要在机器A（带有 nginx-proxy）上为机器B上的容器提供代理服务，那么你需要在机器A的nginx-proxy上进行扩展配置。你可以在 nginx-proxy 上手动添加一个配置，指向机器B上的容器IP地址和端口。
+
+但是这种方法不会自动更新，除非你创建一个定制版本的 nginx-proxy 来远程连接到机器B并监听其 Docker 守护程序的事件。
+
+在`/srv/nginx-proxy/conf.d`中建立`foo.conf`，它将被挂载在`nginx-proxy`的`/etc/nginx/conf.d`。在`foo.conf`中设置`upstream`和`proxy_pass`即可。
 
