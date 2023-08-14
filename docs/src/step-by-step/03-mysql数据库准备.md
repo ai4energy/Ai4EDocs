@@ -166,10 +166,10 @@ services:
     image: mariadb:10.6.14
     container_name: ai4e-things-mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: dlgcdxlgjzdsys
+      MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: ai4e_things
       MYSQL_USER: ai4e_things
-      MYSQL_PASSWORD: 789612543Ab1234
+      MYSQL_PASSWORD: password
       TZ: Asia/Shanghai
     ports:
       - "3306:3306"
