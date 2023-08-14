@@ -362,3 +362,34 @@ Visual Studio Code（VSCode）是一个非常灵活的代码编辑器，拥有�
    如果你想断开数据库连接，只需在 SQLTools 的连接管理器中右键点击你的数据库连接，然后选择 "Disconnect"。
 
 这就是在 VSCode 中使用 SQLTools 插件连接到 MariaDB 数据库的基本步骤。有许多其他数据库插件可供选择，因此你可能会发现其他插件更适合你的特定需求或工作流程。
+
+## 如果使用`PostgreSQL`
+如果想使用`PostgreSQL`并希望它在`Docker Compose`配置中有类似的结构，以下是一个示例`docker-compose.yml`文件：
+
+```yaml
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: my_postgres
+    environment:
+      POSTGRES_PASSWORD: rootpassword   # 设置你的root密码
+      POSTGRES_DB: mydatabase           # 你可以指定一个初始数据库名称
+      POSTGRES_USER: user               # 可选: 创建一个用户
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+```
+
+**注意**：
+- `PostgreSQL`的默认端口是`5432`。
+- 在这个示例中，使用了PostgreSQL的官方Docker镜像，它默认支持环境变量`POSTGRES_PASSWORD`, `POSTGRES_DB`, 和`POSTGRES_USER`，来分别指定root密码、数据库名称和用户名。
+- 如果你需要为该用户指定一个密码，你可能需要自定义一个启动脚本或使用其他方式进行管理。
+
+根据需要，您可以进一步配置或修改此`docker-compose.yml`文件。
