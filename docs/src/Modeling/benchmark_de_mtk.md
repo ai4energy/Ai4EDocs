@@ -57,7 +57,7 @@ eqs=[∂(T[i])~p[i]*t*T[i] for i in 1:n]
 @time sol_mtk=solve(prob_mtk);
 ```
 计算结果：
-```math
+```
 #第一次计算(包含预编译时间)
 #@time sol_de=solve(prob_de);
  0.265494 seconds (217.39 k allocations: 21.561 MiB, 95.65% compilation time: 100% of which was recompilation)
