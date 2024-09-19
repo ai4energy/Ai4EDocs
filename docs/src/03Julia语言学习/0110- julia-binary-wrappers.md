@@ -1,5 +1,9 @@
 # julia对外部程序的加壳
 
+!!! tip
+
+    * 本页内容为选学内容。 
+
 前面我们讲了julia可以很方便的调用外部的动态链接库中的函数。有很多的外部的库都可以编译成动态链接库，然后写个julia函数去调用。但是编译这些外部库，在不同的环境下还是要做很多的设置的。julia的JuliaBinaryWrappers组织做了很多基础的工作，维护很多外部程序编译的要求。
 
 比如https://github.com/JuliaBinaryWrappers/CoolProp_jll.jl，在其src/wrappers目录中是不用的平台（linux、windows、macosx）和不同的编译器组合对应的编译规则文件。实际上我们不用管那么多，只需要知道我们如果add CoolProp_jll包就会调用合适脚本去抓取源码，然后编译成对应的动态链接库。实际上这些代码也都是由BinaryBuilder.jl自动产生的，不是手动维护的。
